@@ -1,0 +1,669 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{calrsfs}
+\usepackage{tikz-cd} 
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary}[section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{example}{Example}[section] 
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PreSh}{PreSh}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Ker}{Ker}
+
+
+\title{Representation Theory 1 V4A3}
+\author{So Murata}
+\date{2024/2025 Winter Semester - Uni Bonn}
+
+\begin{document}
+\maketitle
+
+\section{Overview of the material}
+
+\subsection{Lie groups}
+
+\begin{definition}
+A Lie group is a group $G$ whose underlying set is endowed with the structure of smooth manifolds such that multiplication and inversions are smooth maps.
+\end{definition}
+
+\begin{definition}
+A topological group is a group $G$ whose underlying set is endowed with the structure of topological space such that multiplication and inversions are continuous.
+\end{definition}
+
+\section{Preliminaries}
+
+\subsection{Topology}
+
+\begin{definition}
+We have two axioms about the topological spaces
+\begin{enumerate}
+\item $T_0$(Komogolov) : Given any 2 points, there exists an open set such that it contains one of them but not both.
+\item $T_1$(Hausdorff) : Given any 2 points, there exist disjoints open set that each contains one of them.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+A topological space is second countable if it has a basis which contains at most countably many subsets.
+\end{definition}
+
+\section{Lie groups}
+
+\subsection{Manifolds}
+
+\begin{definition}
+Let $f:X\to Y$ be a mapping between two topological spaces $X,Y$. $f$ is called a homeomorphism if 
+\begin{enumerate}
+\item $f$ is a bijection,
+\item $f$ is continuous,
+\item $f^{-1}$ is also continuous.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+Let $U\subseteq\mathbb{R}^n,V\subseteq\mathbb{R}^m$ be open sets and $f:U\to V$ be a smooth map. Then the derivative of $f$ at $p\in U$ is 
+\begin{equation*}
+df(p) = \left({\frac {\partial f_i} {\partial x_j}}\right)_{ij}.
+\end{equation*}
+\end{definition}
+
+\begin{proposition}
+Let $f:U\to V, g:V\to W$ be smooth maps. Then for $p\in U$ we have
+\begin{equation*}
+d(g\circ f) = dg(f(p))df(p).
+\end{equation*}
+\end{proposition}
+
+\begin{definition}
+Let $U\subseteq\mathbb{R}^n,V\subseteq\mathbb{R}^m$ be open sets. A map $f:U\to V$ is called a diffeomorphism if 
+\begin{enumerate}[i).]
+\item $f$ is smooth. ($\Leftrightarrow$ arbitrary order of partial derivatives exists),
+\item $f^{-1}$ is defined and is also a smooth map.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a topological space. A chart on $X$ is a homeomorphism $h:U\to V$ where $U\subseteq X$ is open and $V\subseteq \mathbb{R}^n$ is open.
+\end{definition}
+
+\begin{definition}
+An atlas $\mathcal{A}$ on a topological space $X$ is a collection of charts $\{h_\lambda\:|\: h_\lambda:U_\lambda\to V_\lambda\}_{\lambda\in \Lambda}$ such that
+$\{U_\lambda\}_{\lambda\in\Lambda}$ is an open cover of $X$.
+\end{definition}
+
+\begin{definition}
+An atlas $\mathcal{A}$ of $X$ is said to be smooth if for any two charts $h_1:U_1\to V_2,h_2:U_2\to V_2$. The following,
+\begin{equation*}
+h_2\circ h_1^{-1}:h_1(U_1\cap U_2)\to h_2(U_1\cap U_2),
+\end{equation*}
+is a smooth map. Such map is called a transition map.
+\end{definition}
+
+\begin{definition}
+Let $X$ be a topological space and $\mathcal{A}_1,\mathcal{A}_2$ be smooth atlases. We say they are equivalent if $\mathcal{A}_1\cup\mathcal{A}_2$ is also smooth.
+\end{definition}
+
+\begin{proposition}
+Above definition indeed defines an equivalence relation.
+\end{proposition}
+\begin{proof}
+For any $h_1\in \mathcal{A}_1,h_2\in \mathcal{A}_2,h_3\in \mathcal{A}_3$, 
+\begin{equation*}
+h_3\circ h^{-1}_1 = h_3\circ h^{-1}_2\circ h_2\circ h^{-1}_1.
+\end{equation*}
+\end{proof}
+
+
+
+\begin{definition}
+A smooth manifold is a second countable Hausdorff topological space with equivalence classes of smooth atlases.
+\end{definition}
+
+\begin{definition}
+Let $M,N$ be smooth manifolds, $f:M\to N$ be a map, and $p\in M$. $f$ is said to be smooth at $p$ if for one (hence any) pair of charts around $p$ and $f(p)$, 
+\begin{equation*}
+h_M:U_M\to V_M, h_N:U_N\to V_N,
+\end{equation*}
+the composed function 
+\begin{equation*}
+h_N\circ f \circ h_M^{-1}:V_M\to V_N
+\end{equation*}
+is smooth at $h_M(p)$.
+\end{definition}
+
+\begin{remark}
+We can define a function $\dim:M\to N$ such that
+\begin{equation*}
+\dim(p)=\dim(V)_p,
+\end{equation*}
+for any chart $h:U\to V$ around $p$. And this function is locally constant. In particular, if $M$ is connected then it has a well-defined dimensions.
+\end{remark}
+
+\begin{definition}
+Let $M,N$ be smooth manifold and $f:M\to N$ be a mapping which is smooth at $p\in M$. For any charts, 
+\begin{equation*}
+h_N\circ f \circ h_M^{-1}:V_M\to V_N,
+\end{equation*}
+the rank of $f$ at $p$ is such that
+\begin{equation*}
+\rk(f;p) = \rank(\mathbf{df}(h_M(p))(h_N\circ f\circ h^{-1}_M)).
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+Let $M,N$ be smooth manifolds and $f:M\to N$ be a smooth map. A point $p$ is said to be regular with respect to the map f. And a point $q\in N$ is called a regular value if all $p\in f^{-1}(q)$ are regular.
+\end{definition}
+
+\begin{definition}
+Let $M$ be a manifold. A subset $N\subseteq M $ is called an embedded submanifold if for any point $p\in N$, there is a chart $h_M:U_M\to V_M$ around $p$ such that
+\begin{equation*}
+h_M|_N:U_M\cap N\to V_M\cap \mathcal{R}^n,
+\end{equation*}
+ is a diffeomorphism where $n$ is the dimension of $N$.\\
+ \par In particular, an embedded submanifold of an euclidean space is called a embedded manifold. 
+\end{definition}
+
+\begin{definition}
+A map $f:M\to\ N$ of smooth manifolds is called a diffeomorphism if 
+\begin{enumerate}[i).]
+\item $f:M\to N$ is a bijection,
+\item $f,f^{-1}$ are both smooth.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+Let $f:M\to N$ be a smooth map between manifolds, and $q\in N$ be a regular value. Then $f^{-1}(q)\subset M$ is an embedded submanifold.
+\end{theorem}
+
+\begin{theorem}
+Let $f:M\to N$ be a smooth map of manifolds $p\in M$ be a regular point, and $\dim(p) = \dim(f(p))$. Then $f$ is a local diffeomorphism of $p$. In other words, there is a neighborhood $U_M$ of $p$ in $M$ and $f(p)\in U_N\subset N$ such that
+\begin{equation*}
+f|_{U_M}:U_M\to U_N,
+\end{equation*}
+is a diffeomorphism. 
+\end{theorem}
+
+\begin{definition}
+Let $M\subseteq \mathbb{R}^n$ be an embedded manifold such that for some open set $U\subset\mathbb{R}^n$, there is $V\subset\mathbb{R}^n$ such that
+\begin{equation*}
+h:U\to V, \quad h_M:U\cap M\to V\cap \mathbb{R}^m,
+\end{equation*}
+is a diffeomorphism where $h_M$ is defined to be taking the first $m$ coordinate of the points in $V$. (Thus $m\leq n$).\\
+\par The tangent space $T_pM$ of $M$ at $p$ is the subspace of $\mathbb{R}^n$ such that
+\begin{equation*}
+(\mathbf{dh}(p))^{-1}(\mathbb{R}^m)\subset\mathbb{R}^n.
+\end{equation*}
+\end{definition}
+
+There are three definitions of tangent spaces and they are all equivalent. However, each of them has its own advantages. 
+
+\begin{definition}[Coordinate tangent space]
+Given a smooth manifold $M$ and a point $p\in M$. The coordinate tangent space of $p$ is such that
+\begin{equation*}
+T_p^{\mathbf{Coo}}M = \{(h,v)\:|\: h:U\to V\text{ is a chart}, v\in\mathbb{R}^m\}/\sim.
+\end{equation*}
+Where $\sim$ is an equivalence relation such that
+\begin{equation*}
+(h_1,v_1)\sim (h_2,v_2)\text{ if } (\mathbf{d}(h_2\circ h_1^{-1})(h_1(p)))(v_1) = v_2.
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+Given a smooth manifold $M$, a point $p\in M$, and a smooth map $\alpha:I\to M$ whose domain $I$ is an open interval contains $0$. $\alpha$ is called a smooth curve if $\alpha(0)=p$.
+\end{definition}
+
+\begin{definition}
+Two smooth curves $\alpha,\beta:I\to M$ through $p$ are said to be tangentially equivalent if for one (hence any) charts $h:U\to V$ around $p$, we have 
+\begin{equation*}
+d(h\circ\alpha)(0) = d(h\circ\beta)(0).
+\end{equation*}
+We denote such relation as $\sim_T$.
+\end{definition}
+
+\begin{definition}[Geometric tangent space]
+The geometric tangent space at $p$ of a smooth manifold $M$ is such that
+\begin{equation*}
+T^{\mathbf{Geo}}_p=\{\alpha:I\to M\:|\: \alpha\text{ is a smooth curve}\}/\sim_T.
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+A germ of smooth functions of manifolds $M$ at $p$ is an equivalence class of tuples $(U,f)$ where
+\begin{enumerate}[i).]
+\item $U\subset M$ is a neighborhood of $p$,
+\item $f:U\to\mathbb{R}$ is smooth,
+\end{enumerate}
+and two tuples $(U_1,f_1),(U_2,f_2)$ are equivalent if there is a neighborhood $V$ of $p$ such that $V\in U_1\cap U_2$ and $f_1|_V=f_2|_V$. \\
+\par And we denote the set of germs at $p$ as
+\begin{equation*}
+\mathcal{C}^\infty(p).
+\end{equation*}
+\end{definition}
+
+\begin{remark}
+$\mathcal{C}^\infty(U,\mathbb{R})$ and $\mathcal{C}^\infty(p)$ are rings, in fact $\mathbb{R}$-algebras. 
+\end{remark}
+
+\begin{definition}
+Let $R$ be a ring and $A$ be a bimodule over $R$. A $R$-derivation in $A$ is an operator $X:A\to A$ such that the Leibniz rule holds. In other words, 
+\begin{equation*}
+X(ab) = aX(b)+X(a)b,
+\end{equation*}
+holds for all $a,b\in A$.
+\end{definition}
+
+\begin{definition}[Algebraic tangent space]
+The algebraic tangent space $T^{\mathbf{Alg}}_pM$ of $M$ at $p$ is the set of $\mathbb{R}$-derivations $X:\mathcal{C}^\infty(p)\to\mathbb{R}$. 
+\end{definition}
+
+\begin{remark}
+In the above definition, $\mathbb{R}$ is considered as a $\mathcal{C}^\infty(p)$-bimodule via the evaluation map $f\mapsto f(p)$.
+\end{remark}
+
+\begin{theorem}
+The following are isomorphisms of $\mathcal{R}$-vector spaces.
+\begin{align*}
+T^{\mathbf{Geo}}_pM&\to T^{\mathbf{Alg}}_pM, \alpha\mapsto(f\mapsto (f\circ\alpha)'(0)),\\
+T^{\mathbf{Alg}}_pM&\to T^{\mathbf{Coo}}_pM, X\mapsto (h, ((Xh_i)(p))_{i=1,\cdots,n}),\\
+T^{\mathbf{Coo}}_pM&\to T^{\mathbf{Geo}}_pM, (h,v)\mapsto \alpha(t)=h^{-1}(h(p)+t\cdot v).
+\end{align*}
+\end{theorem}
+
+\begin{proposition}
+$\mathcal{C}^\infty(p)$ is a local ring with its maximal ideal
+\begin{equation*}
+\mathfrak{m}_p=\{f\in\mathcal{C}^\infty(p)\:|\: f(p) = 0\}.
+\end{equation*}
+Moreover, if we have a derivation $X:\mathcal{C}^\infty(p)\to\mathbb{R}$, the restricted derivation $X|_{\mathfrak{m}_p}$ is in
+$\Hom_{\mathbb{R}}(\mathfrak{m}_p/\mathfrak{m}_p^2)$. 
+And by this restriction, we get an isomorphism between $T^{\mathbf{Alg}}_pM$ and $\Hom_{\mathbb{R}}(\mathfrak{m}_p/\mathfrak{m}_p^2,\mathbb{R})$.
+\end{proposition} 
+
+\begin{remark}
+In this way, a smooth manifold is recognized as a locally ringed space, locally isomorphic to $\mathbb{R}^n$.
+\end{remark}
+
+\begin{remark}
+Let $V$ be a finite dimensional $\mathbb{R}$-vector space. It has a tautological smooth manifold structure by taking charts such 
+that the sets of isomorphisms of $V$ and $\mathbb{R}^n$ given by arbitrary basis of $V$. \\
+\par We claim that we have canonical isomorphisms
+\begin{equation*}
+T_pV\to V,
+\end{equation*}
+for any $p\in V$,
+\begin{align*}
+V\to T_p^{\mathbf{Coo}}V,& v\mapsto(h,h(v)),\\
+V\to T_p^{\mathbf{Geo}}V,& v\mapsto(t\mapsto p+tv),\\
+V\to T_p^{\mathbf{Alg}}V,& v\mapsto\left(f\mapsto{\frac d {dt}}\bigg{|}_{t=0}f(p+tv)\right)
+\end{align*}
+\end{remark}
+
+\begin{definition}
+Let $f:M\to N$ be a map of smooth manifolds which is smooth at $p\in M$. Its differential of $p$ is the linear map
+\begin{equation*}
+\mathbf{d}f(p) = \mathbf{d}_p(f):T_pM\to T_{f(p)}N,
+\end{equation*}
+defined as follows.
+\begin{enumerate}[1).]
+\item Geometric tangent space : $\mathbf{d}_p(f)(\alpha) = f\circ\alpha$ where $\alpha$ is a smooth curve.
+\item Algebraic tangent space : $\mathbf{d}_p(f)(X)(\varphi) = X(\varphi\circ f)$ where $\varphi\in\mathcal{C}^\infty(f(p))$.
+\item Coordinate tangent space : $\mathbf{d}_p(f)(h_M,v_M) = (h_N,d_{h_M(p)}(h_N)$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Given a chart $h:U\to V$ around $p\in M$. $h$ consists of coordinate functions $h_i$ where $1\leq i\leq m$ for $V\subset\mathbb{R}^m$. We have for each $i$
+\begin{equation*}
+\mathbf{d}_ph_i:T_pM\to\mathbb{R},
+\end{equation*}
+and 
+\begin{equation*}
+B=\{d_ph_1,\cdots,d_ph_m\}
+\end{equation*}
+is a basis of the dual space $(T_pM)^*$.\\
+\par Let 
+\begin{equation*}
+\{{\frac {\partial} {\partial x_1}},\cdots,{\frac {\partial} {\partial x_m}}\}
+\end{equation*}
+be the dual basis of $B$. By definition, this means that for any $1\leq i,j\leq m$, we have
+\begin{equation*}
+{\frac {\partial} {\partial x_i}}h_j = d_ph_j({\frac {\partial} {\partial x_i}}) = \delta_{ij}.
+\end{equation*}
+\end{remark}
+
+\begin{proposition}
+Let $f:M\to N$ be a map between smooth manifolds which is smooth and $q\in N$ be a regular value. For $p\in f^{-1}(q)$, we have
+\begin{equation*}
+T_pf^{-1}(q) = \mathbf{d}_p(f)^{-1}(0)\subset T_pM.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\subsection{Immersions and Submersions}
+
+\begin{definition}
+Let $f:M\to N$ be a smooth map of smooth manifolds. $f$ is called an
+\begin{enumerate}[1).]
+\item immersion if $\mathbf{d}f:T_pM\to T_{f(p)}N$ is injective for any $p\in M$,
+\item submersion, if $\mathbf{d}f(p):T_pM\to T_{f(p)}N$ is surjective for any $p\in M$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+An immersion need not be injective. The counter example is 
+\begin{equation*}
+e^{ix}:\mathbb{R}\to S^1,
+\end{equation*}
+is an immersion.
+\end{remark}
+
+\begin{remark}
+A submersion need not be injective. The counter example is 
+\begin{equation*}
+i_U:U\to M,
+\end{equation*}
+an inclusion map is a submersion.
+\end{remark}
+
+\begin{remark}
+We know that if $f$ is a submersion, then $f^{-1}(q)$ is an embedded submanifold. However, if $f$ is an immersion, even it is injective,  $f(M)$ need not be an embedded submanifold of $N$.
+\end{remark}
+
+\begin{definition}
+An immersed submanifold is an image of an injective immersion. 
+\end{definition}
+
+\begin{remark}
+We endow $f(M)$ with the transported topology and differential structure from $M$ so that $f$ becomes a diffeomorphism between $M$ and $f(M)$. But this topology need not be the relative topology from $N$. It may be strictly finite.
+\end{remark}
+
+\begin{example}
+Let $T=S^1\times S^1$ be a torus. Let $r\in\mathbb{R}$. We consider a map $f:\mathbb{R}\to T$ such that
+\begin{equation*}
+f(x) = (e^{2\pi t x},e^{2\pi ri x}).
+\end{equation*}
+This is an immersion for any $r$. We examine this by several cases. \\
+\par First, when $r$ is not a rational number then $f$ is injective, the image is an immersed manifold. However, a copy of $\mathbb{R}$. But this image is a dense subset of the torus. \\
+\par Second, if $r$ is rational then $f$ is not injective. It is going to factor through an injective immersion $\mathbb{R}/b\mathbb{Z}\to T$ where $r={\frac a b}$, $a,b\in\mathbb{Z}$ are coprime. This image is not only immersed but also embedded. \\
+\end{example}
+
+\begin{remark}
+If $f:M\to N$ is an immersion, $\mathbf{d}f_(p)$ identifies $T_pM$ with a linear subspace of $T_{f(p)}N$. 
+\end{remark}
+
+\begin{proposition}
+If $f:M\to N$ is an injective immersion, that is also closed subset of $N$, then its image is an embedded submanifold. 
+\end{proposition}
+
+\begin{remark}
+Thus we have the notion of a closed submanifold. 
+\end{remark}
+
+\subsection{Multi-linear forms}
+\begin{definition}
+Let $\mathbb{V}$ be a vector space and $\varphi:\bigoplus_{i=1}^mV\to\mathbb{R}$ is called a $m$-multi-linear function if for any $i=1,\cdots,m$ and $\{a_j\}_{j\not=i}\subset V$ we have
+\begin{equation*}
+\varphi(a_1,\cdots,a_{i-1},x,a_{i+1},\cdots,a_m):V\to\mathbb{R}
+\end{equation*}
+is a linear function
+\end{definition}
+
+\begin{definition}
+Let $X$ be a smooth $n$-dimensional manifold and $m\in\mathbb{N}$. Then we define the followings
+\begin{enumerate}
+\item $\mathcal{L}^m_p=\{\varphi:\bigoplus_{i=1}^mT_pX\to\mathbb{R}|\varphi \text{ is a m-multi-linear function.}\}$
+\item $\mathcal{L}^m=\bigcup_{p\in X}\mathcal{L}^m_p$
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a smooth $n$-dimensional manifold. A map $V:X\to\mathcal{L}^m$ is called a $m$-tensorfield if 
+\begin{enumerate}[i.]
+\item For any $p\in X$, $V(p)\in\mathcal{L}^m_p$.
+\item For any chart $(U,\varphi)$ around $p$ with a basis $\{e_1^\varphi,\cdots,e_n^\varphi\}$ and for any $i_1,\cdots,i_m\in\{1,\cdots,n\}$ we have a map $V_{(i_1,\cdots,i_m)}:X\to\mathbb{R}$ such that $V_{(i_1,\cdots,i_m)}(p)=V(p)(\underline{e}_{i_1},\cdots,\underline{e}_{i_m})$ is smooth.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+For any m tensorfield $V$, we have
+\end{proposition}
+
+\begin{definition}
+We define $\mathcal{V}^m(X)$ to be the set of all $m$-tensorfield.
+\end{definition}
+
+\begin{proposition}
+$\mathcal{V}^m(X)$ is a vector space over $\mathbb{R}$ and a module over $\mathcal{F}(X)$ with the common basis $\{E_{i_1,\cdots,i_m}\}_{i_1,\cdots,i_m\in\{1,\cdots,n\}}$
+\end{proposition}
+
+\begin{proposition}
+Let $X$ be a smooth $n$-dimensional manifold and $V:X\to\mathcal{L}^m$ be such that for any $p\in X, V(p)\in\mathcal{L}_p^m$ the followings are equivalent.
+\begin{enumerate}
+\item $V$ is a $m$-tensorfield.
+\item For any chart $(U,\varphi)$ around $p$ with basis $\{\underline{e}_1^\varphi,\cdots,\underline{e}_n^\varphi\}$ and for any $1\leq i_1,\cdots,i_m\leq n$ there exist smooth mappings $\lambda_{i_1,\cdots,i_m}:X\to\mathbb{R}$ such that $V(p)=\sum_{1\leq i_1,\cdots,i_m\leq n} \lambda_{i_1,\cdots,i_m}(p)E_{i_1,\cdots,i_m}^\varphi$. 
+\item For any vectorfields $v_1,\cdots,v_m:X\to TX$ we have a function $V:X\to\mathbb{R}$ such that $V_{v_1,\cdots,v_m}(p)=V(p)(v_1(p),\cdots,v_m(p))$ is smooth.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+1.$\Leftrightarrow$2. is trivial. 1.$\Rightarrow$3. is clear by the multi-linearity, and 3.$\Rightarrow$1. is choosing $v_i=e_i^\varphi$ for each $i=1,\cdots,n$.\\
+\end{proof}
+\begin{proposition}
+Let $V:X\to\mathcal{L}^m$ then thne followings are equivalent. 
+\begin{enumerate}
+\item $V$ is a $m$-tensorfield.
+\item For any $\{v_1,\cdots,v_m\}\in\mathcal{V}(X)$, $\Psi:\bigoplus_{i=1}^m\mathcal{V}(X)\to\mathcal{F}(X)$ such that $\Psi(v_1,\cdots,v_m)(p)=V(p)(v_1(p),\cdots,v_m(p))$ is smooth and $\mathcal{F}(X)$-linear.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+1.$\Rightarrow$2. follows from the multilinearity and decompositions of tensors. 2.$\Rightarrow$1. follows by fixing all element except one we still have the linearity thus, the function is mutilinear. 
+\end{proof}
+
+
+\subsection{Tensor and Wedge products}
+
+\begin{definition}
+Let $V_1:X\to\mathcal{L}^r,V_2:X\to\mathcal{L}^s$ be tensorfield. Then We define the tensorproduct $V_1\otimes V_2:X\to\mathcal{L}^{r+s}$ of them to be
+\begin{align*}
+ (V_1\otimes V_2)(p)(v_1,\cdots, v_r,v_{r+1},\cdots,v_{r+s}) = V_1(p)(v_1,\cdots,v_r)V_2(p)(v_{r+1},\cdots,v_{r+s})
+\end{align*}
+\end{definition}
+
+\begin{proposition}
+The operation $\bigotimes$ is bilinear and associative.
+\end{proposition}
+
+\begin{proof}
+By substituting values, they are trivial.
+\end{proof}
+
+\begin{proposition}
+Let $U\subset X$ be an open set and $V_1,\cdots,V_n\in\mathcal{V}^1(U)$ be a basis in $\mathcal{V}^1(U)$ then $\{\bigotimes_{j=1}^rV_{i_j}\}_{1\leq i_1,\cdots,i_r\leq r}$ is a basis in $\mathcal{V}^r(U)$.
+\end{proposition}
+
+\begin{proof}
+Since $\otimes$ is bilinear, this is a tensor product thus the set in the statement is indeed a basis.
+\end{proof}
+
+\begin{definition}
+Let $V\in\mathcal{V}^m(X)$ be a $m$-tensor. $V$ is said to be alternating if for any $p\in X$, $(v_1,\cdots,v_m)\in\bigoplus_{i=1}^m T_pX$ and $\sigma\in\mathfrak{S}_m$ we have
+\begin{equation*}
+V(p)(v_{\sigma(1)},\cdots,v_{\sigma(m)})=\sgn(\sigma)V(p)(v_1,\cdots,v_m)
+\end{equation*}
+Furthermore, such $V$ is called a $m$-form.
+\end{definition}
+
+\begin{notation}
+The set of all $m$-forms is denoted by
+\begin{equation*}
+\mathcal{A}^m(X)=\{V\in\mathcal{V}^m(X)\:|\: V \text{ is a $m$-form.}\}
+\end{equation*}
+\end{notation}
+
+\begin{definition}
+Let $V_1\in\mathcal{A}^r(X),V_2\in\mathcal{A}^s(X)$ then the wedge product is 
+\begin{equation*}
+(V_1\wedge V_2)(p)(v_1,\cdots,v_{r+s}) = {\frac 1 {r!s!}}\sum_{\sigma\in\mathfrak{S}_{r+s}}\sgn(\sigma)V_1\otimes V_2(v_{\sigma(1)},\cdots,v_{\sigma(r+s)})
+\end{equation*}
+\end{definition}
+
+\begin{proposition}
+\label{sec:det_wedge}
+Let $V_1,\cdots,V_n\in\mathcal{A}^1(X)$, $p\in X$ and $v_1,\cdots,v_n\in T_pX$ then we have
+\begin{equation*}
+(V_1\wedge\cdots\wedge V_n)(p)(v_1,\cdots,v_n) = \det(V_i(p)(v_j))_{i,j}
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+\begin{equation*}
+(V_1\wedge\cdots\wedge V_n)(p)(v_1,\cdots,v_{n}) = {\frac 1 {1!\cdots 1!}}\sum_{\sigma\in\mathfrak{S}_{n}}\sgn(\sigma)\prod_{i=1}^nV_i(p)(v_\sigma(i))
+\end{equation*}
+\end{proof}
+
+\begin{proposition}Similar to the case in tensorfields, we have the following statements.
+\begin{enumerate}
+\item $\mathcal{A}^m(X)$ is a subspace of $\mathcal{V}^m$ over $\mathbb{R}$.
+\item $\mathcal{A}^m(X)$ is a module over $\mathcal{F}(X)$. 
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Trivial.
+\end{proof}
+
+\begin{proposition}
+Let $V_1\in\mathcal{A}^r,V_2\in\mathcal{A}^s$, then $V_1\wedge V_2\in\mathcal{A}^{r+s}$ and such $\wedge:\mathcal{A}^r\times\mathcal{A}^s\to\mathcal{A}^{r+s}$ is bilinear.
+\end{proposition}
+
+\begin{proof}
+Bilinearity follows from the bilinearity of $\otimes$. We will show that this is indeed well-defined.\\
+\par Let $\sigma\in\mathfrak{S}_{r+s}$. Then we have
+\begin{align*}
+(V_1\wedge V_2)(p)(v_{\sigma(1)},\cdots,v_{\sigma(r+s)}) & = {\frac 1 {r!s!}}\sum_{\tau\in\mathfrak{S}_{r+s}}\sgn(\tau)V_1\otimes V_2(v_{\tau\circ\sigma(1)},\cdots,v_{\tau\circ\sigma(r+s)})\\
+&=  \sgn(\sigma){\frac 1 {r!s!}}\sum_{\tau\circ\sigma\in\mathfrak{S}_{r+s}}\sgn(\tau\circ\sigma)V_1\otimes V_2(v_{\tau\circ\sigma(1)},\cdots,v_{\tau\circ\sigma(r+s)})\\
+&=\sgn(\sigma)(V_1\wedge V_2)(p)(v_{\sigma(1)},\cdots,v_{\sigma(r+s)})
+\end{align*}
+\end{proof}
+
+\begin{proposition}
+\begin{equation*}
+V_2\wedge V_1 = (-1)^{rs}(V_1\wedge V_2)
+\end{equation*}
+\end{proposition}
+\begin{proof}
+Let $\tau\in\mathfrak{S}_{r+s}$ to be such that
+\begin{equation*}
+\tau(i) = 
+\begin{cases}
+r+i \quad (1\leq i \leq s)\\
+i-s\quad(s+1\leq i \leq r+s)
+\end{cases}
+\end{equation*}
+Then clearly the inversion number is $N(\tau)=rs$. It is also obvious that
+\begin{equation*}
+V_2\wedge V_1(p)(v_{\tau(1)},\cdots,v_{\tau(r+s)}) = V_1\wedge V_2(p)(v_1,\cdots,v_{r+s})
+\end{equation*}
+\end{proof}
+
+\begin{proposition}
+Let $V_1\in\mathcal{A}^r,V_2\in\mathcal{A}^s,V_3\in\mathcal{A}^t$ then $(V_1\wedge V_2)\wedge V_3=V_1\wedge(V_2\wedge V_3)$.
+\end{proposition}
+
+\begin{proof}
+\begin{align*}
+(V_1\wedge V_2)\wedge V_3(p)(v_1,\cdots,v_{r+s+t})& = {\frac 1 {(r+s)!t!}}\sum_{\tau\in\mathfrak{S}_{r+s+t}}\sgn(\tau)(V_1\wedge V_2)\oplus V_3(v_{\tau(1)},\cdots,v_{\tau(r+s+t)})\\
+&={\frac 1 {(r+s)!t!}}\sum_{\tau\in\mathfrak{S}_{r+s+t}}\sgn(\tau)\\
+&({\frac 1 {r!s!}}\sum_{\sigma\in\mathfrak{S}_{r+s}}\sgn(\sigma)V_1\otimes V_2(v_{\tau\circ\sigma(1)},\cdots,v_{\tau\circ\sigma(r+s)}))\\
+&V_3(v_{\sigma(r+s+1)},\cdots,v_{\sigma(r+s+t)})
+\end{align*}
+If for $\tau_1,\tau_2\in\mathfrak{S}_{r+s+t},\sigma_1,\sigma_2\in\mathfrak{S}_{r+s}$ we have $\tau_1\circ\sigma_1=\tau_2\circ\sigma_2$ then they satisfy the followings 
+\begin{enumerate}[i.]
+\item For any $r+s+1\leq i \leq r+s+t$ we have $\tau_1(i)=\tau_2(i)$.
+\item From above we get $\tau_2^{-1}\circ\tau_1\in\mathfrak{S}_{r+s}$
+\end{enumerate}
+Fixing $\sigma_1$, there exists $(r+s)!$ many such $\sigma_2$. This implies that we can choose $\sigma_1$ to be the identity. Thus we get
+\begin{align*}
+(V_1\wedge V_2)\wedge V_3(p)(v_1,\cdots,v_{r+s+t})& = {\frac 1 {(r+s)!t!}}\sum_{\tau\in\mathfrak{S}_{r+s+t}}\sgn(\tau)(V_1\wedge V_2)\oplus V_3(v_{\tau(1)},\cdots,v_{\tau(r+s+t)})\\
+&={\frac 1 {(r+s)!t!}}\sum_{\tau\in\mathfrak{S}_{r+s+t}}\sgn(\tau){\frac {(r+s)!} {r!s!}}V_1\oplus V_2\oplus V_3(v_{\tau(1)},\cdots,v_{\tau(r+s+t)})\\
+& = {\frac 1 {r!s!t!}}\sum_{\tau\in\mathfrak{S}_{r+s+t}}\sgn(\tau)V_1\oplus V_2\oplus V_3(v_{\tau(1)},\cdots,v_{\tau(r+s+t)})\\
+\end{align*}
+From the previous proposition we get
+\end{proof}
+
+\section{Integration}
+
+\begin{definition}
+A differential $k$-form $\omega$ on a smooth manifold $M$ is a collection $\omega(p)\in A^k(T_pM)$ for all $p\in M$. 
+\end{definition}
+
+\begin{remark}
+We can define what it means for $\omega$ to be continuous or smooth at some points $p\in M$ as follows.\\
+\par First, we pick a chart $h:U\to V$ around $p$ and get the basis
+\begin{equation*}
+\{{\frac {\partial} {\partial x_1}},\cdots,{\frac {\partial} {\partial x_m}}\},
+\end{equation*}
+of $T_pM$ that moves with $p\in U$.\\
+We also have a basis $A^k(T_pM)=\bigwedge^k(T_pM)^*$. Hence we can express $\omega$ as $p$ in terms of that basis and the scalars in this expression are functions on $U$.
+
+\begin{equation*}
+\omega(p) = \sum f_{i_1,\cdots,i_k}\cdot d_{x_{i_1}}\wedge\cdots\wedge d_{x_{i_k}}.
+\end{equation*}
+And we can require $ f_{i_1,\cdots,i_k}\cdots d_{x_{i_1}}$ to be smooth/continuous at $p$.
+\end{remark}
+
+\begin{example}
+If $M=\mathbb{R}^n$, we have the canonical identification,
+\begin{equation*}
+T_pM = \mathbb{R}^n.
+\end{equation*}
+This gives us standard differential form of degree $n$. which is given by 
+\begin{equation*}
+e_1^*\wedge\cdots\wedge e^*_n,
+\end{equation*}
+where $e_1,\cdots,e_n$ is the standard basis of $\mathbb{R}^n$.
+\end{example}
+
+\begin{definition}
+Let $f:M\to N$ be a smooth map of manifolds and $\omega$ be a differential form of degree $k$ on $N$. We define $f^*(\omega)$ of degree $k$ on $M$ by
+\begin{equation*}
+f^*(w)(p)(x_1,\cdots,x_k) = \omega(f(p))(\mathbf{d}f_p(x_1),\cdots,\mathbf{d}f_p(x_k)).
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+A differential $n$-form $\omega$ on $M$ is said to be locally integrable if for any point $p\in M$, if for any point $p\in M$, there is one (hence any) chart $h:U\to V$ such that $\omega|_U=$
+\end{definition}
+
+\end{document}

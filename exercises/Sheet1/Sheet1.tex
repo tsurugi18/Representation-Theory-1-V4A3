@@ -1,0 +1,168 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd} 
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary}[section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{example}{Example}[section] 
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PreSh}{PreSh}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Ker}{Ker}
+
+
+\title{Representation Theory 1 V4A3 Exercise Sheet 1}
+\author{So Murata}
+\date{2024/2025 Winter Semester - Uni Bonn}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 1}
+
+\subsection*{1.1 $\mathcal{C}^\infty$ is a locally ringed space}
+
+Let us define a set such that 
+\begin{equation*}
+\mathfrak{m}_{X,p}=\{(U,f)\:|\: f\in\mathcal{C}^\infty(U), f(p)=0\}.
+\end{equation*}
+
+Since $f:U\to\mathbb{R}$ is a smooth map and $f(p)\not=0$, then the quotient ${\frac 1 f}$ is smooth at $p$, we derive that $\mathfrak{m}_{X,p}$ is a unique maximal ideal of $\mathcal{O}_{X,p}$.
+
+\subsection*{1.2 A smooth map induces a map of locally ringed space.}
+
+For any $x\in g^{-1}(V)$, we have $g(x)\in V$ by the definition, we obtain that
+
+\begin{align*}
+f|_V\circ g|_{g^{-1}(V)} = (f\circ g)|_{g^{-1}(V)}.
+\end{align*}
+This shows that $g^{\#}$ is a natural transformation. Furthermore, for any $f:U\to\mathbb{R}$ such that $f(p) = 0$, we obtain for any $q\in g^{-1}(\{p\})$, $f\circ g(q)=0$. Thus the image of maximal ideal under $g$ is contained a maximal idea. This proves the claim.
+
+\subsection*{1.3}
+
+Composition of $g$ and each component of a chart is smooth thus a composition of $g$ and any chart is smooth. This concludes that $g$ is smooth.
+
+\section*{Exercise 2}
+
+\subsection*{2.1}
+
+Let us define the product topology on $M\times N$, since it is a direct product of finitely many topological space, it coincides with the box topology. And atlases of it is defined as the product of two atlases, ie. for any atlas 
+\begin{equation*}
+\mathcal{A}_{M\times N} = \{h_M\times h_N:U_M\times U_N\to V_M\times V_N\:|\: h_M\in\mathcal{A}_M,h_N\in\mathcal{A}_N\}
+\end{equation*}
+
+for some atlases $\mathcal{A}_M$ and $\mathcal{A}_N$. By the construction of the product topology, such set is indeed an atlas. \\
+
+Let $h:U\to V$ and $(h_M,h_N):U_M\times U_N\to V_M\times V_N$ be charts of $M,M\times N$, respectively. Then
+\begin{equation*}
+h\circ \pi_1\circ (h_M,h_N)^{-1} = h\circ \pi_1\circ (h_M^{-1},h_N^{-1}) = h\circ h_M^{-1}.
+\end{equation*}
+
+By the assumption, this is smooth, therefore $\pi_1$ is a smooth map.\\
+
+\par Given a map of smooth manifolds $f:M'\to M\times N$. $f$ is smooth if and only if 
+\begin{equation*}
+(h_M,h_N)\circ f\circ h'^{-1}
+\end{equation*}
+is smooth for any charts. By the elementary tool from analysis we know that this means, the function is coordinate-wise smooth thus the above function is smooth if and only if 
+\begin{equation*}
+h_M\circ\pi_1\circ f\circ h'^{-1},h_N\circ\pi_2\circ f\circ h'^{-1}
+\end{equation*}
+are smooth. \\
+
+\par Since $\pi_1,\pi_2$ are both smooth, any topology on $M\times N$ with these criterions would contain the product topology on it. Since identity map of $M\times N$ is smooth, we obtain that such $M\times N$ is unique. 
+
+\subsection*{2.2}
+
+Using the coordinate tangent space we obtain that 
+\begin{equation*}
+((h_M,h_N),(v_M,v_n)) \mapsto (h_M,v_M)\times(h_N,v_N).
+\end{equation*}
+
+By the construction of atlases in $M\times N$, this map is a bijection. 
+
+\section*{Exercise 3}
+
+\subsection*{3.1}
+
+Let $\alpha,\beta:I\to G$ be smooth curves such that $\alpha(0)=\beta(0)=e$ and $\alpha,\beta$ are representations of equivalent classes $X,Y$ in $T_{(e,e)}^{\mathbf{Geo}}(G\times G)$. Since derivatives are linear maps we obtain
+\begin{equation*}
+d\mu_{(e,e)}(X,Y) = d\mu_{(e,e)}(X,e)+d\mu_{(e,e)}(e,Y).  
+\end{equation*}
+
+By using Geometric tangent space we get
+\begin{equation*}
+d\mu_{(e,e)}(X,e) = {\frac d {dt}}|_0\mu(\alpha(t),e) = \alpha'(0) = X.
+\end{equation*}
+
+By applying this to $Y$ we obtain
+
+\begin{equation*}
+d\mu_{(e,e)}(X,Y) = X+Y.
+\end{equation*}
+
+\subsection*{3.2}
+
+Trivially we have $\mu(e,e) =e$ and the derivative is surjective as it is proven in the previous problem. \\
+Let $X=h, Y=0$ for any $h\in T_{g,g^{-1}}G$ then this is a surjection thus full rank. We use the implicit function theorem and conclude there is $\iota$ such that
+\begin{equation*}
+\mu(a,\iota(a))=e
+\end{equation*}
+around a neighborhood of $e$. And this is smooth as $\mu$ is smooth. Let $\alpha:I\to G$ be a smooth curve.
+\begin{equation*}
+\mu(\alpha(t),\iota(\alpha(t)) = e.
+\end{equation*}
+
+Therefore
+\begin{equation*}
+d_{(e,e)}\mu(X,\iota(X)) = 0 = \left(\alpha'(0),\alpha'(0)\iota'(e)\right)\begin{pmatrix}1\\1\end{pmatrix} = X+d_e\iota X = 0.
+\end{equation*}
+
+\subsection*{3.3}
+
+Let $g\in G$ and consider $\mu(g,g^{-1})=e$. Using similar arguments in the 3.1 we obtain that
+
+\begin{equation*}
+d_{g,g^{-1}}\mu(X,Y) = d_{g,g^{-1}}(X,g^{-1})+d_{g,g^{-1}}(g,Y).
+\end{equation*}
+
+We pick $\alpha,\beta:I\to G$ to be such that
+\begin{equation*}
+\alpha(0) = g, \beta(0) = g^{-1}.
+\end{equation*} 
+
+Then 
+\begin{equation*}
+d_{g,g^{-1}}\mu(X,Y) = Xd(g^{-1})+d(g)Y.
+\end{equation*}
+
+Let $X=hg, Y=0$ for any $h\in T_{g,g^{-1}}G$ then this is a surjection thus full rank. We can use the implicit function theorem and by the uniqueness of inverse, we conclude that $G$ is a Lie group.
+
+\end{document}
