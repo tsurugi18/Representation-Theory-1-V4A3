@@ -1,0 +1,80 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd} 
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary}[section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{example}{Example}[section] 
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PreSh}{PreSh}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Ker}{Ker}
+
+
+\title{Representation Theory 1 V4A3 Exercise Sheet 2 Problem 3}
+\author{So Murata}
+\date{2024/2025 Winter Semester - Uni Bonn}
+
+\begin{document}
+\maketitle
+
+\section*{(1)}
+
+Let $\alpha(t)=\Phi_v(t+s,p)$ and $\beta(t) = \Phi_v(t,\Phi_v(s,p))$. Then for a fixed $s$ and $t=0$, we have
+\begin{equation*}
+\alpha(0) = \Phi_v(s,p) = \Phi_v(0,\Phi_v(s,p))=\beta(0).
+\end{equation*}
+
+Also we have for some neighborhood, 
+\begin{equation*}
+{\frac {d\alpha} {dt}}(t) = v(\alpha(t)), \quad {\frac {d\beta} {dt}}(t) = v(\beta(t)).
+\end{equation*}
+
+By the uniqueness of $c_{p,v}$, we derive that $\alpha=\beta$.\\
+\par The above also proves for $s$, since $s$ can be picked arbitrary and they are equal at $t=0$.
+
+\section*{(2)}
+
+Let $\beta(t) = R_p\Phi_v(t,1)$ and $\alpha(t) = R_p\beta(t)$ then $\alpha(0)=p$. We need to show that $v(\alpha(t)) = dR_{\alpha(t)}(1)X$. Indeed we have
+\begin{equation*}
+dR_{pq}(1) = d(R_q\circ R_p)(1) = dR_q(R_p(1))dR_p(1).
+\end{equation*}
+
+Using this we derive
+\begin{align*}
+(\alpha)'(t) &= dR_p(\beta(t))dR_{\beta(t)}(1)X\\
+& = dR_p(R_{\beta(t)}1)dR_{\beta(t)}(1)X\\
+& = dR_{\beta(t)p}(1)X\\
+&= dR_{\alpha(t)}(1)X.
+\end{align*}
+
+By the uniqueness, we get $\alpha(t) = \Phi_v(t,p)$.
+
+\end{document}
