@@ -37,6 +37,13 @@
 \DeclareMathOperator{\PreSh}{PreSh}
 \DeclareMathOperator{\Fun}{Fun}
 \DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Lie}{Lie}
 
 
 \title{Representation Theory 1 V4A3}
@@ -45,6 +52,8 @@
 
 \begin{document}
 \maketitle
+
+
 
 \section{Overview of the material}
 
@@ -665,5 +674,645 @@ f^*(w)(p)(x_1,\cdots,x_k) = \omega(f(p))(\mathbf{d}f_p(x_1),\cdots,\mathbf{d}f_p
 \begin{definition}
 A differential $n$-form $\omega$ on $M$ is said to be locally integrable if for any point $p\in M$, if for any point $p\in M$, there is one (hence any) chart $h:U\to V$ such that $\omega|_U=$
 \end{definition}
+
+\section{Lie Algebras}
+
+\subsection{Important homomorphisms and their properties.}
+
+Recall if $f:M\to N$ is a smooth map of smooth manifolds and $p\in M$, we get $df(p):T_pM\to T_{f(p)}N$ is linear. 
+
+\begin{proposition}
+Let $(G,\mu,\iota,1)$ be a lie group and $\mathfrak{g}=T_1G$. We have
+\begin{align*}
+d\mu(1,1):\mathfrak{g}\times\mathfrak{g}\to\mathfrak{g}&, (X,Y)\mapsto X+Y.\\
+d\iota(1):\mathfrak{g}\times\mathfrak{g}&, X\mapsto -X
+\end{align*}
+\end{proposition}
+
+\begin{definition}
+A Lie group homomorphism is a smooth map of Lie groups that is a homomorphism.
+\end{definition}
+
+\begin{remark}
+If $f:G\to H$ is a Lie group homomorphism then 
+\begin{equation*}
+df(1):\mathfrak{g}\to \mathfrak{h}
+\end{equation*}
+is a linear map.
+\end{remark}
+
+\begin{definition}
+Let $G$ be a Lie group. The adjoint action of $G$ on itself is 
+\begin{equation*}
+\underline{\Ad}(g):G\to G, h\mapsto ghg^{-1}
+\end{equation*}
+which is a group homomorphism.
+\end{definition}
+
+\begin{definition}
+Let $G$ be a Lie group and $\mathfrak{g} = T_1G$. Then we define
+\begin{equation*}
+\Ad(g) = d\underline{\Ad}(g)(1):\mathfrak{g}\to\mathfrak{g}.
+\end{equation*}
+We call this the adjoint action of $G$ on $\mathfrak{g}$.
+\end{definition}
+
+\begin{remark}
+The term, "action" in the definition above is justified by the chain rule
+\begin{equation*}
+\Ad(g\cdot h) = \Ad(g)\circ\Ad(h).
+\end{equation*}
+\end{remark}
+
+\begin{definition}
+Let $G$ be a Lie group and $\mathfrak{g}=T_1G$. By regarding $\Ad$ as a function from $G$ to $\GL(\mathfrak{g})$. Notice that by the definition of groups we have $\Ad(g)$ is injective.\\
+\par We now define the adjoint action of $\mathfrak{g}$ on itself to be
+\begin{equation*}
+\ad:\mathfrak{g}\to\End(\mathfrak{g}), X\mapsto d\Ad(1)X.
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+Let $G$ be a Lie group and $\mathfrak{g}=T_1G$. The Lie bracket is $[\cdot|\cdot]:\mathfrak{g}\times\mathfrak{g}\to\mathfrak{g}$ such that 
+\begin{equation*}
+[X|Y] = \ad(X)(Y).
+\end{equation*}
+\end{definition}
+
+\begin{proposition}
+Let $G=\GL_n(\mathbb{R})$ and $\mathfrak{g}=\mathbb{R}^{n\times n}$. Let $g\in G$ and $X,Y\in\mathfrak{g}$. We have
+\begin{equation*}
+[X|Y] = XY-YX.
+\end{equation*}
+\end{proposition}
+
+\begin{proof} Let $g\in G$, 
+\begin{align*}
+\Ad(g)X &= d\underline{\Ad}(g)(1)X,\\
+& = g(1+X)g^{-1}-g1g^{-1}\mod{o(X)},\\
+& = gXg^{-1}\mod{o(X)},\\
+&=gXg^{-1}.
+\end{align*}
+In particular $\underline{Ad}$ is a liner map. Now we compute the Lie bracket
+\begin{equation*}
+[X|Y] = \ad(X)(Y) = [E_Y\circ\ad](X),
+\end{equation*}
+where $E_Y$ is the evaluation map 
+\begin{equation*}
+E_Y:\End(\mathfrak{g})\to\mathfrak{g}, \phi\mapsto\phi(Y).
+\end{equation*}
+\begin{align*}
+[X|Y] & = [E_Y\circ\ad](X),\\
+& = d[g\mapsto\Ad(g)Y](1)(X),\\
+&=d[g\mapsto gYg^{-1}](1)(X).
+\end{align*}
+By the first computation we did, we see that
+\begin{align*}
+[X|Y] = (1+X)Y(1+X)^{-1}-Y\mod{o(X)}.
+\end{align*}
+We have the following identity
+\begin{equation*}
+(1-X)^{-1}=1+X+X^2+\cdots.
+\end{equation*}
+Substituting $-X$ we derive that
+\begin{equation*}
+1+X=\sum_{i=0}^\infty (-1)^iX^i.
+\end{equation*}
+And we only need at most degree $1$ terms of $X$. We conclude that
+\begin{equation*}
+[X|Y] =XY-YX.
+\end{equation*}
+\end{proof}
+
+\begin{remark}
+This works for any matrix groups such as $\SL_n(\mathbb{R}),O(p,q)$.
+\end{remark}
+
+\begin{proposition}
+Let $f:G\to H$ be a Lie group homomorphism. For $g\in G$, we have
+\begin{equation}
+df(1)\circ\Ad(g)=\Ad(f(g))\circ df(1).
+\label{nat_transform_gh}
+\end{equation}
+And for $X,Y\in\mathfrak{g}$, we have
+\begin{equation}
+df(1)([X|Y]_G)=[df(1)X,df(1)Y]_H.
+\end{equation}
+\label{comp_homo}
+\end{proposition}
+
+\begin{proof}
+Let us consider the composition of $f$ and $\underline{\Ad}$. By definition, we see
+\begin{equation*}
+f\circ\underline{\Ad}(g)(h) =  f(g)f(h)f(g)^{-1}=\underline{\Ad}(f(g))(f(h)).
+\end{equation*}
+Since $\underline{\Ad}(1) = 1$ and by the chain rule we have Equation \ref{nat_transform_gh}.\\
+\par %later.
+\end{proof}
+
+\subsection{Lie Algebras}
+
+\begin{definition}
+A Lie algebra a (finite dimensional) vector space $L$ over $\mathbb{R}$ or $\mathbb{C}$ together with a bilinear map $[\cdot|\cdot]:L\times L\to L$ such that
+\begin{enumerate}[i]
+\item $[X|Y]=-[Y|X]$,
+\item $[X|[Y|Z]]+[Y[Z|X]]+[Z|[X|Y]]=0$ which is called Jacobi identity.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+Let $G$ be a Lie group and $\mathfrak{g}=T_1G$. Then $\mathfrak{g}$ equipped with $[X|Y] = \ad(X)(Y)$ is a $\mathbb{R}$-Lie algebra.
+\end{proposition}
+
+\begin{proof}
+Consider the commutator map $G\times G\to G,(x,y)\mapsto xyx^{-1}y^{-1}$. This is a smooth map as it is a composition of smooth maps $\mu(\mu(\cdot,\cdot),\mu(\iota(\cdot),\iota(\cdot)))$. Moreover, we can write this as
+\begin{equation*}
+\underline{\Ad}(x)(y)\iota(y).
+\end{equation*}
+Differentiate this at $y=1$ in the direction of $Y$, we get 
+\begin{equation*}
+d(\underline{\Ad}(x)(1)\iota(1))Y = \Ad(x)Y-Y,
+\end{equation*}
+since $d\iota(Y) = -Y$. Differentiate this again at $x=1$ with respect to $X$ we get $[X,Y]$.\\
+\par Repeating the argument with 
+\begin{equation*}
+x\underline{\Ad}(y)(\iota(x)).
+\end{equation*}
+Differentiate this at $x=1$ with the direction to $X$ we get
+\begin{equation*}
+X-\underline{\Ad}(y)X=X-yXy^{-1}.
+\end{equation*}
+Differentiate this again at $y=1$ with the direction to $Y$, we get $-[Y|X]$. By smoothness, we get
+\begin{equation*}
+[X|Y]=-[Y|X].
+\end{equation*}
+For the second property, we consider the Lie group homomorphism,
+\begin{equation*}
+\Ad:G\to\GL(\mathfrak{g}).
+\end{equation*}
+By Proposition \ref{comp_homo}, we have
+\begin{equation*}
+\ad[X|Y]_G=[\ad(X)|\ad(Y)]_{\GL(\mathfrak{g})} = \ad(X)\ad(Y)-\ad(Y)\ad(X).
+\end{equation*}
+Therefore, by definition of $[\cdot|\cdot]$, we get
+\begin{equation*}
+[[X|Y]|Z]=[X|[Y|Z]]-[Y|[X|Z]]
+\end{equation*}
+By the first property, we get the Jacobi identity.
+\end{proof}
+
+\begin{example}
+If $V$ is a finite dimensional $\mathbb{R}$-vector space then $\End(V)$ equipped with $[X|Y]=XY-YX$ is a Lie algebra. In fact, this coincides with the Lie algebra of the Lie group $\GL(V)$.
+\end{example}
+
+\begin{definition}
+A homomorphism of Lie algebras is a linear map $f:L\to M$ such that for $X,Y\in L$ 
+\begin{equation*}
+f([X|Y]_L) = [f(X)|f(Y)]_M
+\end{equation*}
+\end{definition}
+
+\begin{corollary}
+If $f:G\to H$ is a homomorphism of Lie groups, then $df(1):\mathfrak{g}\to\mathfrak{h}$ is a homomorphism of Lie algebras.
+\end{corollary}
+
+\subsection{The identity component}
+
+\begin{lemma}
+Let $G$ be a topological group. If $H\subset G$ is an open subgroup, then it is also closed. Thus if $G$ is connected we have $H=G$.
+\label{op_subgroup}
+\end{lemma}
+\begin{proof}
+Let $\{1\}\cup I$ be a set of representations of equivalence classes in $G/H$. In other words we have
+\begin{equation*}
+G = H\cup\bigcup_{i\in I}iH. 
+\end{equation*}
+Since $\bigcup_{i\in I}iH$ is open, thus its complement $H$ is closed.
+\end{proof}
+
+\begin{lemma}
+Let $G$ be a connected topological group and $U\subseteq G$ be a neighborhood of $1$. Then $U$ generates $G$.
+\label{gen_con_top}
+\end{lemma}
+
+\begin{proof}
+Since $U\cap U^{-1}$ is non-empty and open. We may assume with out the loss of generality that $U=U^{-1}$. Let us denote 
+\begin{equation*}
+U^n = \{g_1\cdots g_n\:|\: g_1,\cdots,g_n\in U\}.
+\end{equation*}
+And for $g_1\cdots g_n\in U^n$, we take $V\subset U$ an open subset and $g_1\in V$. %later
+$Vg_2\cdots g_n$ is open in $U$. We now conclude that
+\begin{equation*}
+H=\bigcup_{n=1}^\infty U^n
+\end{equation*}
+is an open subset which is a subgroup of $G$ since it is closed under multiplication and inversion. Since $G$ is connected we conclude that $H=G$. 
+\end{proof}
+
+\begin{definition}
+A subgroup $H$ of a group $G$ is said to be characteristic if for any automorphism $\varphi:G\to G$, we have $\varphi(H)\subseteq H$. 
+\end{definition}
+
+\begin{definition}
+Let $X$ be a topological space. A connected component $C$ of $x\in X$ is the largest connected set which contains $x$.
+\end{definition}
+
+\begin{proposition}
+If $C$ is a connected component of the topological space $X$, then it is closed.
+\label{comp_clo}
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{proof}
+Let $f:\overline{C}\to\{0,1\}$ be a continuous function where $\{0,1\}$ is  with the discrete topology. Then for any $x\in C$ we conclude $f(x)=0$ without the loss of generality. By the continuity of $f$ we conclude that $f(x)=0$ for any $x\in \overline{C}$. 
+\end{proof}
+
+\begin{definition}
+A topological space $(X,\mathcal{T})$ is said to be locally connected if for any point $x\in X$ and its neighborhood $U$, there exists a connected neighborhood $V$ such that $x\in V\subset U$.
+\end{definition}
+
+\begin{proposition}
+A component of locally connected topological space is open.
+\label{comp_op_loc}
+\end{proposition}
+
+\begin{proposition}
+Let $G$ be a topological group and $G^0$ be the connected component of $G$ containing $1$. 
+\begin{enumerate}[1)]
+\item $G^0$ is a closed characteristic subgroup of $G$.
+\item If $G$ is locally connected then $G^0$ is open and contained in any open subgroup of $G$.
+\item The connected component of $G$ are precisely $G^0$-cosets.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{comp_clo}, $G^0$ is a closed set. Since continuous maps preserve connectedness and $1$ is mapped to $1$, we can conclude that $G^0$ is characteristic. Similarly, since multiplication and inversion are smooth, thus continuous, we conclude that $G^0$ is a subgroup of $G$. This proves the first statement.\\
+\par If $G$ is locally connected, by Proposition \ref{comp_op_loc}, $G^0$ is open. If $H\subset G$ is any open subgroup, then $H\cap G^0$ is an open subgroup of $G^0$. By Lemma \ref{gen_con_top}, we have $H\cap G^0$ generates $G^0$. $H\cap G^0$ is a group, we conclude that it is equal to $G^0$. This shows that $G^0$ is contained in any open subgroup of $G$.\\
+\par Let $C$ be a connected component and $g\in C$. Since $\mu(\cdot,g^{-1}:G\to G$ is continuous, we conclude that $\mu(C,g^{-1})$ is contained in the connected component which contains $1$. Hence $C=G^0g$.
+\end{proof}
+
+\subsection{Invariant vector fields}
+
+\begin{definition}
+Let $M$ be a manifold. A vector field $v$ on $M$ is an assignment that for each $p\in M$, we have $v(p)\in T_pM$. It is said to be smooth if locally around each point $p\in M$, it's coefficients in terms of local coordinates are smooth functions. In other words, given a chart $h:U\to V$, we can get a basis ${\frac \partial {\partial x_1}},\cdots,{\frac \partial {\partial x_n}}$ of $T_pM$ for all $p\in U$. And locally
+\begin{equation*}
+v(p) = \sum_{i=1}^n c_i(p)\cdot{\frac \partial {\partial x_i}}.
+\end{equation*}
+And each $c_i$ is smooth.
+\end{definition}
+
+\begin{definition}
+Let $M$ be a manifold, $v$ be a smooth vector field. An integral curve is a pair $(I,\gamma)$ where
+\begin{enumerate}[i).]
+\item $I$ is an open interval,
+\item $\gamma:I\to M$ is a smooth map such that $\gamma'(t) = v(\gamma(t))$.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition} 
+Let $v$ be a smooth vector field on a manifold $M$, then we have the following statements.
+\begin{enumerate}[1).]
+\item Given $p\in M$, there exists a integral curve $(I,\gamma)$ such that $0\in I$ and $\gamma(0)=p$. 
+\item $(I_1,\gamma_1),(I_2,\gamma_2)$ be integral curves with above properties. Then for any $t\in I_1\cap I_2$, we have $\gamma_1(t)=\gamma_2(t)$. 
+\item In particular, we can splice such $\gamma_1,\gamma_2$. 
+\end{enumerate}
+\label{existence_integral_curve}
+\end{proposition}
+
+\begin{proof}
+Follows from existence and uniqueness of solutions of ordinary differential equations in $\mathbb{R}^n$ via charts.%later.
+\end{proof}
+
+\begin{remark}
+There is a maximal integral curve through $p$.
+\end{remark}
+
+\begin{definition}
+Let $G$ be a Lie group and $g\in G$. We define
+\begin{equation*}
+L_g:G\to G, L_g(x) = gx,\quad R_g:G\to G, R_g(x)=xg,
+\end{equation*}
+the left and the right translations. Obviously these are diffeomorphisms as the inverses are $L_{g^{-1}}, R_{g^{-1}}$, respectively.
+\end{definition}
+
+\begin{remark}
+By differentiating these we get
+\begin{equation*}
+dL_g(1):\mathfrak{g}\to T_gG,\quad dR_g(1):\mathfrak{g}\to T_gG.
+\end{equation*}
+\end{remark}
+
+\begin{proposition}
+Let $G$ be a Lie group and $g\in G$. Then $dL_g(1),dR_g(1)$ are isomorphisms between $\mathfrak{g}$ and $T_gG$. Therefore, we can naturally identify $T_gG$ by $\mathfrak{g}$. Moreover, $dL_g(1),dR_g(1)$ are not the same in general and differ by the automorphism $\Ad(g)$.
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{definition}
+A vector field $v$ on the Lie group $G$ is said to be
+\begin{enumerate}[1).]
+\item left-invariant if $v(g) = dL_g(1)(v(1))$,
+\item right-invariant if $v(g) = dR_g(1)(v(1))$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Such vector field is automatically smooth. And the assignments 
+\begin{equation*}
+X^L=X\mapsto(g\to dL_g(1)(X)), \quad X^R= X\mapsto(g\to dR_g(1)(X))
+\end{equation*}
+identify the Lie algebra $\mathfrak{g}$ with the space of left/right-invariant vector fields on $G$.
+\end{remark}
+
+\begin{lemma}
+Let $v$ be a left-invariant vector field on $G$. The maximal integral curve $\gamma$ with $\gamma(0)=1$ is defined on all of $\mathbb{R}$ and is a group homomorphism.
+\label{max_int_curve}
+\end{lemma}
+
+\begin{proof}
+Let $\gamma:I\to G$ be an integral curve with $v$ with $\gamma(0)=1$.\\
+\par Assume $I\not=\mathbb{R}$ thus, without the loss of generality $I$ has an upper bound $t_0\in\mathbb{R}$. We will have to show that $\gamma$ is not maximal. To see this, we choose $0<\varepsilon<t_0$ and $t_0-\varepsilon<t_1<t_0, t\in I$.\\
+\par Consider $\delta(t) = \gamma(t_1)\cdot\gamma(t-t_1)$. Thus $\gamma$ is a smooth curve defined an open neighborhood of $t_0$ and $\delta(t_1)=\gamma(t_1)$ and 
+\begin{align*}
+\delta'(t) &= d\delta(t)(1),\\
+& = dL_{\gamma(t_1)}(\gamma(t-t_1))(dr(t-t_1)(1)),\\
+& = dL_{\gamma(t_1)}(v(\gamma(t-t_1))),\\
+& = dL_{\gamma(t_1)}(\gamma(t-t_1)(dL_{r(t-t_1)}(1)(v(1))),\\
+& = dL_{\gamma(t_1)\gamma(t-t_1)}(1)(v(1)),\\
+& = v(\gamma(t_1)\gamma(t-t_1)),\\
+&= v(\delta(t)).
+\end{align*}
+Thus $\delta$ is an integral curve for $v$ defined on an open neighborhood of $t_0$ containing $t_1$ and $\delta(t_1) = \gamma(t_1)$. Therefore $\gamma$ is not maximal.\\
+\par Now we are going to show that $\gamma$ is a homomorphism. For fixed $t\in \mathbb{R}$, note that the maps 
+\begin{equation*}
+s\mapsto\gamma(t+s),\quad s\mapsto\gamma(t)\gamma(s)
+\end{equation*}
+are both integral curves for $v$ with equal value at $s=0$, hence equal. 
+\end{proof}
+
+\subsection{The Exponential Maps}
+
+\begin{proposition}
+Let $X\in\mathfrak{g}$, there exists a unique group homomorphism $\gamma_X:\mathbb{R}\to G$ differentiable at $0$ and $\gamma'_X(0)=X$. It is the maximal integral curve through $1$ for both $X^L$ and $X^R$. We have $\gamma_{tX}(s)=\gamma_X(ts)$ for $t\in \mathbb{R}$. 
+%Question : X^L = g\mapsto dL_g(1)X(1)
+\end{proposition}
+
+\begin{proof}
+By Lemma \ref{max_int_curve}, there exist maximal integral curves for $X^L$ and $X^R$ , we denote them by $\gamma_{X^L},\gamma_{X^R}$, respectively. By Lemma \ref{existence_integral_curve}, we can assume $\gamma_{X^L}(0)=\gamma_{X^R}(0)=1$, and these are defined on the whole $\mathbb{R}$.\\
+\par For uniqueness, let $\gamma:\mathbb{R}\to G$ be a group homomorphism which is differentiable at $0$ with $\gamma'(0)=X$. Then
+\begin{equation}
+\label{commutativity_curve}
+\gamma(t)\gamma(s) = \gamma(t+s)=\gamma(s+t)=\gamma(s)\gamma(t).
+\end{equation}
+Fix $t$ and apply ${\frac {d} {ds}}|_{s=0}$ to see that $\gamma$ is differentiable at any $t$ in the following way
+\begin{align*}
+{\frac d {ds}}|_{s=0}\gamma(t)\gamma(s) &= {\frac d {ds}}|_{s=0}\gamma(t+s),\\
+\Rightarrow\gamma(t)\gamma'(0) = \gamma'(t).
+\end{align*}
+By construction, when $\gamma=\gamma_{X^L}$ we have
+\begin{align*}
+\gamma'_{X^L}(t) &= dL_{\gamma_{X^L}(t)}(1)(X^L(1))\\
+& = dL_{\gamma_{X^L}(t)}(1)X\\
+& = L_{\gamma_{X^L}(t)}X.
+\end{align*}
+Similarly for $\gamma=\gamma_{X^R}$ we have
+\begin{align*}
+\gamma'_{X^R}(t) &= dR_{\gamma_{X^R}(t)}(1)(X^R(1))\\
+& = dR_{\gamma_{X^R}(t)}(1)X\\
+& = R_{\gamma_{X^R}(t)}X.
+\end{align*}
+%later check
+By the uniqueness of solutions of ordinary differential equations, we derive that $\gamma_{X^L}=\gamma_{X^R}$.
+This proves that $\gamma_{X^L},\gamma_{X^R}$ are maximal as they are defined on all $t\in\mathbb{R}$.\\
+\par For the second property, we only need to check that $\gamma_{tX}(s)=\gamma_X(ts)$ coincide at $s=0$.
+%later
+\end{proof}
+
+\begin{definition}
+Let $G$ be a Lie group and $\mathfrak{g}=T_1G$. Then we define the exponential map
+\begin{equation*}
+\exp_G:\mathfrak{g}\to G, \exp_G(X) = \gamma_X(1),
+\end{equation*}
+where $\gamma_X$ is the integral curve of $v(g)=dL_{g}(1)X$.
+\end{definition}
+
+\begin{theorem}
+$\exp_G:\mathfrak{g}\to G$ is smooth and has the following properties.
+\begin{enumerate}[1).]
+\item $\underline{\Ad}(x)\circ\exp_G = \exp_G\circ\Ad(x)$ for any $x\in G$.
+\item $\Ad\circ\exp_G = \exp_{\GL(\mathfrak{g})}\circ\ad$.
+\item $d\exp_G(0):\mathfrak{g}\to\mathfrak{g}$ is an identity $id_{\mathfrak{g}}$.
+\item If $f:G\to H$ is a homomorphism of Lie groups, then $f\circ\exp_G=\exp_H\circ df(1)$. 
+\item $\gamma_X(t)=\exp_G(t\cdot X)$.
+\end{enumerate}
+\label{exp_prop}
+\end{theorem}
+
+\begin{proof}
+Look at the homework %later.
+\end{proof}
+
+\begin{proposition}
+\label{exp_series}
+Let $V$ be a finite dimensional $\mathbb{R}$-vector space. Then 
+\begin{equation*}
+\exp_{\GL(V)}:\mathfrak{gl}(V)\to\GL(V)
+\end{equation*}
+is given by 
+\begin{equation*}
+\exp_{\GL(V)}(X)=\sum_{n=0}^\infty{\frac 1 {n!}}X^n.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+Homework%later
+\end{proof}
+
+\begin{corollary}
+\label{exp_prop_cor}
+Furthermore, we can derive the following properties of $\exp_G$,
+\begin{enumerate}[1).]
+\item $\Image\exp_G\subseteq G^0$.
+\item $\exp_G:\mathfrak{g}\to G$ is a diffeomorphism locally around $0$.
+\item If $U\subseteq\mathfrak{g}$ is a neighborhood of $0$ in $\mathfrak{g}$, then $\exp_G(U)$ generates $G^0$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}Note that $\exp_G$ is a smooth map.\\
+\par By the smoothness, it is also continuous. Since $\mathfrak{g}$ is connected, it is mapped to a connected subset of $G$ which contains $1$. Thus we have the first property.\\
+\par By the third property of Theorem \ref{exp_prop}, we have $d\exp_G(0)$ is invertible.\\
+\par By the second property of the same theorem, $\exp_G(U)$ contains an open neighborhood of $1$, thus generates $G^0$.
+\end{proof}
+
+\begin{corollary}
+Let $G$ be a connected Lie group and $g\in G$, we have the following
+\begin{equation*}
+g\in Z(G) \Leftrightarrow \Ad(g) = id_{\mathfrak{g}}.
+\end{equation*}
+\end{corollary}
+
+\begin{proof}
+If $g\in Z(G)$, then $\underline{\Ad}(g) = id_G$, therefore $\Ad(g)=id_{\mathfrak{g}}$. Conversely, if $\Ad(g)=id_{\mathfrak{g}}$,  by the first property of Theorem \ref{exp_prop} we have $\underline{\Ad}(g)$ is identity on the image of $\exp_G$. By the second statement of Corollary \ref{exp_prop_cor}, this image generates $G$. Since $\underline{\Ad}(g)$ is a homomorphism, it is trivial on the entire group $G$.
+\end{proof}
+
+\begin{corollary}
+Let $G$ be a Lie group and $X,Y\in\mathfrak{g}$. We have
+\begin{equation*}
+[X|Y] = 0\Rightarrow \exp_G(X)\exp_G(Y)=\exp_G(Y)\exp_G(X).
+\end{equation*}
+\end{corollary}
+\begin{proof}
+Let $x=\exp_G(X),y=\exp_G(Y)$. By the first and second statements of Theorem \ref{exp_prop}, 
+\begin{equation*}
+xyx^{-1}=\exp_G(\Ad(X)Y) = \exp_G(\exp_{\GL(\mathfrak{g})}(\ad(X)(Y))).
+\end{equation*}
+By Proposition \ref{exp_series} and the assumption, this is equal to 
+\begin{equation*}
+\exp_G(Y)=y.
+\end{equation*}
+\end{proof}
+
+\begin{corollary}
+Let $f_1,f_2:H\to G$ be homomorphisms of Lie groups. If $H$ is connected and $df_1(1)=df_2(1)$. Then $f_1=f_2$.
+\end{corollary}
+
+\begin{proof}
+Using the forth statement of Theorem \ref{exp_prop}, we have $f_1=f_2$ upon restriction to the image of $\exp_H$, and such image generates $H$. 
+\end{proof}
+
+\subsection{Differentials of $\exp_G$}
+
+\begin{theorem}
+Let $X\in\mathfrak{g}$. (Recall that we have the canonical identification $T_x\mathfrak{g}\to\mathfrak{g}$).\\
+\par Consider 
+\begin{equation*}
+d(\exp_G)(x):\mathfrak{g}\to T_{\exp(X)}G,\quad dR_{\exp_G(x)}(1):\mathfrak{g}\to T_{\exp_G(x)}G.
+\end{equation*}
+Then we have the following,
+\begin{equation*}
+dR_{\exp_G(x)}(1)^{-1}\circ d(\exp_G)(x):\mathfrak{g}\to\mathfrak{g}, X\to\int_0^1\exp_{\GL(\mathfrak{g})}(s\cdot\ad(X))ds.
+\end{equation*} 
+\label{g_end_int}
+\end{theorem}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{corollary}
+An element $X\in\mathfrak{g}$ is a singular point for $\exp_G$ if and only if $\ad(X)\in\mathfrak{gl}(\mathfrak{g})$ has an eigenvalue of the form $2\pi ik$ for some $k\in Z^{\times}$. 
+\label{sing_lie_alg}
+\end{corollary}
+
+\begin{proof}
+Since both $\mathfrak{g}$ and $G$ have the same dimension, $X$ is singular if and only if $d(\exp_G)(X)$ is not invertible. By Theorem %later%
+the equation
+\begin{equation}
+\int_0^1\exp_{\GL(\mathfrak{g})}(s\cdot\ad(X))dx
+\label{eq_int_end}
+\end{equation}
+is not invertible. In other words, it admits $0$ as an eigenvalue. Using the formula
+\begin{equation*}
+\int_0^1\exp_{\GL(\mathfrak{g})}(s\lambda)dx = 
+\begin{cases}
+\lambda^{-1}(e^{\lambda}-1)\quad(\lambda\not=0),\\
+1\quad(\lambda=0).
+\end{cases}
+\end{equation*}
+We see that the eigenvalues of the \eqref{eq_int_end} are given by $1$ if $0$ is an eigenvalue of $\ad(X)$ and $\lambda^{-1}(e^\lambda-1)$ if $\lambda\not=0$ is an eigenvalue of $\ad(X)$.
+\end{proof}
+
+\begin{remark}
+The formula \eqref{eq_int_end} generalizes to 
+\begin{equation*}
+\int_0^1e^{sA}ds = A^{-1}(e^A-1)=\sum_{k=0}^\infty {\frac 1 {(k+1)!}}A^k.
+\end{equation*}
+for any $A\in\GL(V)$ where $V$ is a finite dimensional $\mathbb{R}$-vector space. If $A$ is not invertible, we can define $A^{-1}(e^A-1)$ by the above formula.\\
+\par This is particularly useful for $A=\ad(X)$, for $X\in\mathfrak{g}=V$, which is never invertible since $\ad(X)(X)=0$. Moreover, for $A=\ad(X), A^{-1}(e^A-1)$ is invertible for $X$ in a neighborhood of $0$ by Corollary \ref{sing_lie_alg}.
+\end{remark}
+
+\subsection{The Product in Logarithmic Coordinates}
+
+\begin{theorem}
+Let $U\subset\mathfrak{g}$ be an open neighborhood of $0$. For $X,Y\in U$, consider the differential equation for $z:\mathbb{R}\to\mathfrak{g}$, such that
+\begin{equation*}
+z(0)=Y,\quad{\frac {dz} {dt}}(t) = (\ad z(t))^{-1}(\exp_{\GL{\mathfrak{g}}}(\ad z(t))-1))^{-1}(X).
+\end{equation*}
+For $U$ sufficiently small, this differential equation has (a unique) solution for all $X,Y\in U$ and all $t\in[0,1]$. Define $\mu(X,Y) = z(1)$. Then 
+\begin{equation*}
+\exp_G(X)\exp_G(Y) = \exp_G(\mu(X,Y)).
+\end{equation*}
+\label{product_exp_expression}
+\end{theorem}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{corollary}
+The collection of maps $\kappa_X:U\to G$, where $U\subset\mathfrak{g}$ is an open neighborhood of $0$. 
+\begin{equation*}
+\kappa_x(Y)= x\cdot\exp_G(Y)
+\end{equation*}
+is a smooth, in fact real analytic, atlas for the manifold $G$.
+\end{corollary}
+
+\begin{proof}
+We know that $\exp_G$ is smooth and a locally diffeomorphism around $0$. So $\kappa_x$ is a diffeomorphism onto its image . Thus $(\kappa_x)_{x\in G}$ is a smooth atlas.\\
+\par The transition maps are expressible in terms of $\mu$ by Theorem \ref{product_exp_expression}. Since $\mu$ is real analytic in $X,Y$. we see that the atlas is real analytic.
+\end{proof}
+
+\begin{definition}[Real analytic manifolds]
+A manifold is said to be%later
+\end{definition}
+
+\begin{remark}
+In particular, any Lie group is automatically real analytic.
+\end{remark}
+
+\begin{theorem}
+Let $X,Y\in U$, then 
+\begin{equation*}
+\mu(X, Y) = X+Y+\sum_{k=1}^\infty {\frac {(1)^k)} {k+1}}\sum_{\substack{l_1,\cdots,l_k\geq0,\\m_1, \cdots,m_k\geq0,\\l_i+m_i>0}}
+{\frac 1 {\sum_{i=1}^k l_i +1}}\prod_{i=1}^k{\frac {\ad(X)^{l_i}} {l_i!}}{\frac {\ad(X)^{m_i}} {m_i!}}
+\end{equation*}
+\end{theorem}
+
+\begin{corollary}
+\begin{equation*}
+\mu(X,Y)=X+Y+{\frac 1 2}[X,Y]+O(|(X,Y)|^3).
+\end{equation*}
+\end{corollary}
+
+\subsection{Lie Subgroups}
+
+\begin{definition}
+Let $G$ be a Lie group. A Lie subgroup $H$ of $G$ is a immersive submanifold that is also a subgroup.
+\end{definition}
+
+\begin{remark}
+A tautological inclusion $i_H:H\to G$ is an injective immersion.%later
+\end{remark}
+
+\begin{theorem}
+There is a bijection between
+\begin{equation*}
+\{H\subseteq G\:|\: \text{Lie subgroups.}\}\leftrightarrow\{\text{Lie subalgebras of $\Lie(G)$.}\},
+\end{equation*}
+which is induced by the tautological injection $i_H:H\to G$.
+\end{theorem}
+
+\begin{proof}
+Recall that $H$ is generated by $\exp_H(\mathfrak{h})$ which is equal to $\exp_G(\mathfrak{h})$ by the forth statement of Theorem \ref{exp_prop}. \\
+\par 
+\end{proof}
+
+\begin{remark}
+This map is a bijection from the set of connected Lie subalgebras of $G$ to the set of Lie subalgebras of $\Lie(G)$. 
+\end{remark}
 
 \end{document}

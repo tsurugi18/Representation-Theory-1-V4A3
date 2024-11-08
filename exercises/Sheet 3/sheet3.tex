@@ -1,0 +1,73 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{calrsfs}
+\usepackage{tikz-cd} 
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary}[section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{example}{Example}[section] 
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PreSh}{PreSh}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Lie}{Lie}
+
+
+\title{Representation Theory 1 V4A3 Sheet 3 Exercise 1}
+\author{So Murata}
+\date{2024/2025 Winter Semester - Uni Bonn}
+
+\begin{document}
+\maketitle
+
+\section*{1.}
+
+By the property of the exponential map we have
+\begin{equation*}
+\underline{\Ad}(g)\circ \exp_H = \exp_H\circ\Ad(g).
+\end{equation*}
+We have $\exp_H(\mathfrak{h})$ generates $H$. Thus $\underline{\Ad}(g)\circ\exp_H(\mathfrak{h})$ generates $gHg^{-1}$. With the equation above, we conclude the statement.
+
+\section*{2.}
+
+If $H$ is a normal subgroup then by the previous problem, we derive that 
+\begin{equation*}
+\Ad(g)(\mathfrak{h}) = \mathfrak{h}.
+\end{equation*}
+
+
+
+\end{document}
