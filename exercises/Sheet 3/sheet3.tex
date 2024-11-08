@@ -63,11 +63,33 @@ We have $\exp_H(\mathfrak{h})$ generates $H$. Thus $\underline{\Ad}(g)\circ\exp_
 
 \section*{2.}
 
-If $H$ is a normal subgroup then by the previous problem, we derive that 
+Let $X\in\mathfrak{g}$ and $Y\in\mathfrak{h}$. Then $\exp_G(X)\in G$ and $\exp_G(Y)\in H$. By using properties of $\exp$,
+\begin{align*}
+\underline{\Ad}(\exp_GX)\exp_GY &= \exp_G\Ad(\exp_GX)Y,\\
+&=\exp_G\exp_{\GL(\mathfrak{g})}\ad(X)(Y),\\
+& = \exp_G(X)\exp_G(Y)\exp_G(X)^{-1},\\
+& = \exp_G(X)\exp_G(Y)\exp_G(-X).
+\end{align*}
+
+We let
 \begin{equation*}
-\Ad(g)(\mathfrak{h}) = \mathfrak{h}.
+Y'=\exp_{\GL(\mathfrak{g})}\ad(X)(Y) = \sum_{n=0}^\infty {\frac 1 {n!}}\ad(X)^n Y
 \end{equation*}
 
+If $\mathfrak{h}$ is an ideal, then $Y'\in \mathfrak{h}$. Since $\exp_G(\mathfrak{g})$ and $\exp_G(\mathfrak{h})$ generate $G$ and $H$, respectively. We conclude $H$ for $\mathfrak{h}=\Lie(H)$ is normal.\\
+\par On the other hand,  we have
+\begin{align*}
+{\frac d {dt}}|_{t=0}\exp_{\GL(\mathfrak{g})}\ad(tX)(Y) & = \exp_{\GL(\mathfrak{g})}\ad(tX)(Y)-exp_{\GL(\mathfrak{g})}\ad(0)(Y)\mod{o(t)}\\
+& = \sum_{n=0}^\infty {\frac 1 {n!}}\ad(tX)^n Y-1\mod{o(t)}\\
+& = \ad(X)(Y).
+\end{align*}
+
+Since $H$ is normal for any 
+\begin{equation*}
+\exp_G\exp_{\GL(\mathfrak{g})}\ad(tX)(Y) = \exp_G(tX)\exp_G(Y)\exp_G(-tX)\in H.
+\end{equation*}
+
+for any $t$ thus, $\ad(X)(Y)\in\mathfrak{h}$.
 
 
 \end{document}
