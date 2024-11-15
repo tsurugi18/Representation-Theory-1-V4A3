@@ -83,6 +83,30 @@ We have two axioms about the topological spaces
 A topological space is second countable if it has a basis which contains at most countably many subsets.
 \end{definition}
 
+\begin{definition}
+Let $X,Y$ be topological spaces. A continuous function $f:X\to Y$ is said to be proper if the preimage of arbitrary compact set in $Y$ is again compact.
+\end{definition}
+
+\subsection{Group Theory}
+
+\begin{definition}
+Let $G$ be a group and $X$ be a set. An action of group $G$ on a set $X$ is a mapping $l:G\times X\to X$ such that for any $g,h\in G$ and $x\in X$
+\begin{equation*}
+l(gh,x) = m(g,m(h,x)).
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+A stabilizer of an element $x\in X$ by a group action of $G$ is a subset of $G$ such that
+\begin{equation*}
+G_x=\{g\in G\:|\: gx=x\}.
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+A group action is said to be free if for any $x\in X$ we have $G_x=\{1\}$.
+\end{definition}
+
 \section{Lie groups}
 
 \subsection{Manifolds}
@@ -1317,7 +1341,7 @@ A tautological inclusion $i_H:H\to G$ is an injective immersion.%later
 \begin{theorem}
 Let $G$ be a connected Lie group. Then there is a bijection between
 \begin{equation*}
-\{H\subseteq G\:|\: \text{Lie subgroups.}\}\leftrightarrow\{\text{Lie subalgebras of $\Lie(G)$.}\},
+\{H\subseteq G\:|\: \text{connected Lie subgroups.}\}\leftrightarrow\{\text{Lie subalgebras of $\Lie(G)$.}\},
 \end{equation*}
 %which is induced by the tautological injection $i_H:H\to G$.
 And the bijection is given by $\Lie(\cdot)$.
@@ -1337,7 +1361,7 @@ is an atlas for $G$. We will show that
 is an atlas for $H$.\\
 \par First, we claim that if 
 \begin{equation*}
-\kappa_x(U\mathfrak{h})\cap\kappa_y(U\cap\mathfrak{h})\not=\empty,
+\kappa_x(U\cap\mathfrak{h})\cap\kappa_y(U\cap\mathfrak{h})\not=\emptyset,
 \end{equation*}
 then there exist neighborhood $V_1,V_2$ of $0$ in $\mathfrak{g}$ such that
 \begin{equation*}
@@ -1354,14 +1378,377 @@ is a diffeomorphism. The above composition is given by
 \end{equation*}
 Let $z=y^{-1}x$ then since $x,y\in H$, $z\in H$. Let $X\in\mathfrak{h}$ be such that
 \begin{equation*}
-z = \exp(X).
+z = \exp(X). %later why such X exists.
 \end{equation*}
+Thus by using Theorem \ref{product_exp_expression}, we obtain
+\begin{equation*}
+y^{-1}x\exp_G(Y) = z\exp_G(Y)=\exp_G(X)\exp_G(Y)=\exp_G(\mu(X,Y)).
+\end{equation*}
+Thus if $X,Y\in \mathfrak{h}$, then $\mu(X,Y)\in\mathfrak{h}$\\%Check this assertion may be using the uniqueness of the solution of diffeq with an initial value ?
+%Revise the argument below here
+\par For each $x\in H$, through $\kappa_x:\mathfrak{h}\cap U\to H$, we get a basis of a neighborhood of $0$ in $\mathfrak{h}$. This topologizes $H$ and 
+\begin{equation*}
+(\kappa_x^{-1})_{x\in G},\quad \kappa_x(Y)=x\exp_G(Y)
+\end{equation*}
+becomes an atlas. Therefore, the tautological inclusion $\iota:H\to G$ is now an immersion.
 \end{proof}
 
 \begin{remark}
 This map is a bijection from the set of connected Lie subalgebras of $G$ to the set of Lie subalgebras of $\Lie(G)$. 
 \end{remark}
 
+\begin{definition}
+A subset $\mathfrak{h}$ of a Lie algebra $\mathfrak{g}$ is called an ideal if for any $X\in \mathfrak{h}$ and $Y\in\mathfrak{g}$, we have
+\begin{equation*}
+[X|Y]\in\mathfrak{h}.
+\end{equation*}
+\end{definition}
 
+\begin{lemma}
+%Asked Andrea
+\end{lemma}
+
+\begin{lemma}
+Given a Lie group $G$ and its Lie algebra $\mathfrak{g}$. $H$ is a normal connected Lie subgroup of $G$ if and only if $\Lie(H)$ is an ideal. 
+\end{lemma}
+
+\begin{proof}
+%Homework
+\end{proof}
+
+\begin{lemma}
+Let $G$ be a topological group and $H\subset G$ be a locally closed subgroup. Then $H$ is a closed as a subset of $G$.
+\label{locally_closed_subgroup}
+\end{lemma}
+
+\begin{proof}
+%Homework.
+\end{proof}
+
+\begin{lemma}
+Let $H\subset G$ be a Lie subgroup of a Lie group $G$. Then $H$ is embedded submanifold if and only if $H$ is closed.
+\end{lemma}
+\begin{proof}
+Since $H$ is an embedded submanifold, it is locally closed. %Check this reasoning.
+By Lemma \ref{locally_closed_subgroup}, $H$ is closed. Conversely, if $H$ is closed then a tautological injection $\iota:H\to G$ is a closed injective immersion. Hence $H$ is an embedded submanifold. %Check this reasoning as wel.
+\end{proof}
+
+\begin{theorem}
+Let $G$ be a Lie group and $H\subseteq G$ be a subgroup which is closed as a set. Then $H$ is a closed Lie subgroup.
+\label{closed_subgroup}
+\end{theorem}
+
+\begin{proof}
+Without the loss of generality, we may assume that $H$ is a connected set.\\
+\par Let us define a subset of the Lie algebra $\mathfrak{g}$ as
+\begin{equation*}
+\mathfrak{h} = \{X\in\mathfrak{g}\:|\:\forall t\in\mathbb{R}, \exp_G(tX)\in H\}.
+\end{equation*}
+We will first show that $\mathfrak{h}$ is a subspace of $\mathfrak{g}$. The scalar multiplication is obvious from the definition. We need to show that this is closed under addition. \\
+\par Fix $t\in\mathbb{R}$, for a large enough $n$, there is a neighborhood $V$ of $0$ in $\mathfrak{g}$ such that
+\begin{equation*}
+n^{-1}tX,n^{-1}tY\in V.
+\end{equation*}
+Since $V$ is sufficiently small, $\exp_G|V$ is a diffeomorphism and by Theorem \ref{product_exp_expression}, we have for any $H,K\in V$,
+\begin{equation*}
+\exp_G(H)\exp_G(K)=\exp_G(\mu(H,K)).
+\end{equation*}
+Differentiate the above equation at $(0,0)$, we get
+\begin{equation*}
+d\mu(H,K) = H+K.
+\end{equation*}
+Therefore we have
+\begin{equation*}
+n\cdot d\mu(n^{-1}tX,n^{-1}tY) = t(X+Y).
+\end{equation*}
+Proof of the closedness\\%later
+\par Let $U\subseteq\mathfrak{h}$ be a neighborhood of $0$. Then $\exp_G(U)$ is a neighborhood of $1$ in $H$ by the construction.\\
+\par Suppose there is a sequence $(h_n)_{n\in\mathbb{N}}\subset H\backslash\exp_G(U)$ which converges to $1$. Let $\mathfrak{k}$ be a complement of a vector space $\mathfrak{h}$, that is 
+\begin{equation*}
+\mathfrak{g} = \mathfrak{h}\oplus\mathfrak{k}.
+\end{equation*}
+Consider the map
+\begin{equation*}
+\Phi:\mathfrak{h}\oplus\mathfrak{k}\to G, \Phi(H,K) = \mu(\exp_G(H),\exp_G(K)).
+\end{equation*}
+Differentiating this at $(0,0)$ we get
+\begin{equation*}
+d\Phi(H,K) = H+K,
+\end{equation*}
+since $d\exp_G$ is identity at $0$. We conclude that $\Phi$ is a local diffeomorphism. Thus we can find sequences $(H_n)_{n\in\mathbb{N}}\subset\mathfrak{h} ,(K_n)_{n\in\mathbb{N}}\subset\mathfrak{k}$ such that for big enough $N$ and $n\geq N$,
+\begin{equation*}
+\exp_G(H_n)\exp_G(K_n) = h_n.
+\end{equation*}
+For such $(K_n)_{n\in\mathbb{N}}$ we have $K_n\to 0$.\\%later
+Now define a sequence $K'_n = {\frac {K_n} {|K_n|}}$ in the Euclidean norm. This belongs to the unit sphere in $\mathfrak{k}$ which is a compact set. Thus, we find a subsequence $(K_{n_m})_{m\in\mathbb{N}}$ which is converging to some $K$.
+\par Let $t>0$ be fixed. Since $|K'_n|\o 0$, we can find $(k_n)_{n\in\mathbb{N}}\subseteq\mathbb{N}$ such that
+\begin{equation*}
+k_n\leq {\frac t {|K'_n|}}\leq k_{n+1}.
+\end{equation*}
+Therefore, as $n\to\infty$, 
+\begin{equation*}
+k_n|K'_n|\to t.
+\end{equation*}
+Passing these to $\exp_G$ we get
+\begin{equation*}
+\exp_G(tK) = \lim_{m\to\infty}\exp_G(k_{n_m}K_{n_m}) = \lim_{m\to\infty}\exp_G(K_{n_m})^{k_{n_m}}.
+\end{equation*}
+Since $\exp_G(Y_n)=(\exp_G(H_n))^{-1}h_n$, it belongs to $H$, so does $\exp_G(tK)$.
+%later
+\end{proof}
+\begin{corollary}
+Let $f:G\to H$ be a homomorphism of groups between two Lie groups which is continuous. Then $f$ is a homomorphism of Lie groups.
+\end{corollary}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{corollary}
+Let $f:G\to H$ be a homomorphism of Lie groups. Then $\Ker f$ is a closed Lie subgroup with its Lie algebra $\Ker(df(1))$.
+\label{kernel_lie_subgroup}
+\end{corollary}
+
+\begin{proof}
+Since $H$ is Hausdorff by definition, $\{1\}$ is closed in $H$. $f$ is continuous implies that $K=\Ker f$ is closed in $G$ as it is an inverse image of a closed set. By Theorem \ref{closed_subgroup}, it is a Lie subgroup. By the forth statement of Theorem \ref{exp_prop}, we have
+\begin{equation*}
+f\circ\exp_G = \exp_H\circ df(1).
+\end{equation*}
+Therefore we have an inclusion $\Ker(df(1))\subseteq\Lie(K)$. Conversely, let $X\in\Lie(K)$ and define a map
+\begin{equation*}
+t\mapsto f(\exp_G(tX))=1.
+\end{equation*}
+By differentiating with respect to $t$ at $0$ we see
+\begin{equation*}
+df(1)(X) = 0.
+\end{equation*}
+Therefore $X\in K$.
+\end{proof}
+
+\begin{corollary}
+Let $f:G\to H$ be a homomorphism of Lie groups. If $f$ is an injection then $f$ is an immersion. Furthermore, if $f$ is a bijection then $f$ is an isomorphism.
+\end{corollary}
+
+\begin{proof}
+$f$ is injective if and only if $\Ker f=\{1\}$. By Corollary \ref{kernel_lie_subgroup}, we have 
+\begin{equation*}
+\Ker(df(1))=\{0\}.
+\end{equation*}
+By translation by an arbitrary $g\in G$, %check what exactly is the translation.
+\begin{equation*}
+\Ker(df(g))=\{0\}.
+\end{equation*}
+Moreover, if $f$ is a bijection, then looking locally through charts, we see %check
+\begin{equation*}
+\dim(G) = \dim(H).
+\end{equation*}
+Therefore we have
+\begin{equation*}
+\dim\mathfrak{g}=\dim\mathfrak{h}.
+\end{equation*}
+Since $df(1)$ is an injective linear map between linear spaces with the same dimension, thus a bijection. Using translations again, we see that $df(g)$ is bijective for any $g\in G$.%check
+Therefore, $f$ is a bijective local diffeomorphism everywhere, we conclude $f$ is a diffeomorphism. %check.
+\end{proof}
+
+\subsection{Group Action of Lie Groups}
+
+\begin{definition}
+Let $G$ be a Lie group and $M$ be a manifold. A smooth action of $G$ on $M$ is a smooth map $l:G\times M\to M$ which is a group action.
+\end{definition}
+
+\begin{definition}
+A group action $l:G\times M\to M$ of a topological group $G$ on a manifold $M$ is said to be proper if the map
+\begin{equation*}
+(g,x)\mapsto (gx,x)
+\end{equation*}
+is proper.
+\end{definition}
+
+\begin{remark}
+A group action $l:G\times M\to M$, we can define functions such as
+\begin{enumerate}[1).]
+\item $l_x:G\to M$ for fixed $x\in X$, $l_x(g) = gx$,
+\item $l_g:M\to M$ for fixed $g\in G$, $l_g(x) = gx$.
+\end{enumerate}
+Clearly, both of them are continuous. Furthermore, we have
+\begin{enumerate}[1).]
+\item $l_x$ is injective if and only if $G_x=\{1\}$. 
+\item $l^g$ is always a diffeomorphism with the inverse $m_{g^{-1}}$.
+\end{enumerate}
+\end{remark}
+
+\begin{lemma}
+Let $l:G\times M\to M$ be a smooth, free Lie group action. Then for any $x\in M$, $dl_x(1)$ is injective.
+\label{injective_derivative_action}
+\end{lemma}
+
+\begin{proof}
+Given $X\in\mathfrak{g}$, we have
+\begin{equation*}
+l_x(\exp_G((t+h)X)=l_x(\exp_G(tX)\exp_G(hX)) = l^{\exp_G(tX)}l_x(\exp_G(hX)).
+\end{equation*}
+%Proving injectivity part (Assuming X is in...
+Suppose $X\in\Ker(dl_x(1))$ and fix $t_0\in\mathbb{R}$. We have
+\begin{equation*}
+{\frac d {dt}}\bigg{|}_{t=t_0}l_x(\exp_G(tX)) = {\frac d {dh}}\bigg{|}_{h=0}l_x(\exp_G((t_0+h)X)) = dl^{\exp_G(t_0X)}(X)(dl_x(1)(X))=0.%check the last equality
+\end{equation*} 
+Therefore, $l_x(\exp(tX))$ is constant but $l$ is a free group action. Therefore for any $t\in\mathbb{R}$, $\exp_G(tX)=1$. We conclude that $X=0$. 
+\end{proof}
+
+\begin{theorem}
+Let $m:G\times M\to M$ be a smooth, free, proper group action. We can embed the smooth manifold structure to  the equivalence classes $G/M$ by the orbits of the action with following properties.
+\begin{enumerate}[i).]
+\item The topology on $G/M$ is the quotient topology induced by the canonical map $\pi:M\to G/M$.
+\item For an arbitrary point $p\in G/M$, there is a neighborhood $V\subseteq G/M$ and a diffeomorphism $\pi^{-1}(V)\to G\times V$, which translates the $G$ actions on $\pi^{-1}(V)$ given by the map $l$ to the $G$ action $G\times V$ by left multiplication on $G$.%check later
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $S$ be a complement vector space of $dl_x(1)(\mathfrak{g})$ in $T_xM$, thus we have%check where dl_x(1)(g) belongs to
+\begin{equation*}
+T_xM=S\oplus dl_x(1)(\mathfrak{g}).
+\end{equation*}
+Choose a submanifold $N\subseteq M$ such tha $x\in N$ and t $T_xN=S$. (Such $N$ is called a slice).%Check what proposition justifies this
+We first show that for sufficiently small $N$, the restricted action
+\begin{equation*}
+\overline{l}:G\times N\to M
+\end{equation*}
+is a diffeomorphism onto its image. Indeed, taking the derivative of $\overline{l}$ at $(1,x)$ we derive
+\begin{equation*}
+d\overline{l}(1,x):\mathfrak{g}\times T_xN\to T_xM.
+\end{equation*}
+By the construction of $N$ and Lemma \ref{injective_derivative_action}, this is a bijection. By translation, we have $d\overline{l}(g,y)$ is bijective for any $(g,y)\in G\times N$ close enough to $(1,x)$. \\%Check if this is due to continuity and how its proved.
+Take $N$ small enough so that for each $y\in N$, $d\overline{l}(1,y)$ is bijective. Using the formula
+\begin{equation*}
+d\overline{l}(g,y) = dl^g\circ d\overline{l}(1,y),
+\end{equation*}
+we see that $d\overline{l}(g,y)$ is bijective for any $(g,y)\in G\times N$.\\
+Secondly, we prove that for sufficiently small enough $N$, $\overline{l}$ is injective. Suppose that there are sequences $(y_n)_{n\in\mathbb{N}}, (z_n)_{n\in\mathbb{N}}\subset N$ and $(g_n)_{n\in\mathbb{N}},(h_n)_{n\in\mathbb{N}}\subset G$ such that 
+\begin{equation*}
+g_iy_i = h_iz_i, (g_i,y_i)\not=(h_i,z_i).
+\end{equation*}
+
+If $g_i=h_i$ then by the definition of group actions, $y_i=z_i$, therefore, we may assume that $g_i\not=h_i$. Let $k_i = h_i^{-1}g_i\not=1$. Then the sequence
+\begin{equation*}
+(k_iy_i,y_i) = (z_i,y_i)\to(x,x),
+\end{equation*}
+is contained in a compact subset of $M\times M$.\\ %Check this reasoning.
+\par By the properness of $l$, $(k_i)_{i\in\mathbb{N}}$ is contained in a compact subset of $G$. Thus it has a convergent subsequence which converges to some $k\in G$. Therefore, with that subsequence we have
+\begin{equation*}
+x=\lim_{i\to\infty}z_i=\lim_{j\to\infty} k_{i_j}y_{i_j} = kx.
+\end{equation*}
+By the freeness of $l$, we conclude that $k=1$. However, $(k_{i_j},y_{i_j}),(1,z_{i_j})\subset G\times N$ converge to $(1,x)$. This contradicts to the injectivity of $\overline{l}$ in a sufficiently small neighborhood of $(1,x)$.\\%Check this reasoning.
+\par Now we are ready to close our proof. Note that the properness of the action implies that the space $G/M$ is Hausdorff as each equivalence class is closed.\\%check the reasoning
+\par We introduce an atlas by 
+\begin{equation*}
+\overline{l}:G\times N\to\pi^{-1}(\pi(N)).
+\end{equation*}
+This satisfies the desired property.%Revise the proof.
+\end{proof}
+
+\begin{corollary}
+Let $H\subset G$ be a closed Lie subgroup. Then the coset spaces $H\backslash G$ and $G/H$ are both smooth manifold. Furthermore, $\pi_l:G\to H\backslash G$ and $\pi_r:G\to G/H$ are principal $H$-bundles. %Check the definition of bundles.
+\end{corollary}
+
+\begin{proof}
+The left action map $l:H\times G\to G$ is a multiplication and $H\times G\to G\times G$ is proper. %Check 
+\end{proof}
+
+\begin{corollary}
+Let $H\subset G$ be a closed normal Lie subgroup. Then $G/H$ is a Lie group and the canonical group homomorphism $\pi:G\to G/H$ is a Lie group homomorphism.
+\end{corollary}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{corollary}
+Let $f:H\to G$ be a homomorphism of Lie groups. Then there exists a unique $\overline{f}:H/\Ker f\to G$ such that 
+\begin{equation*}
+\overline{f}\circ\pi =f.
+\end{equation*}
+And such $\overline{f}$ is an injective immersion.
+\end{corollary}
+
+\begin{proof}
+By elementary group theory, there exists a unique homomorphism $\overline{f}$. Since $\pi:H\to H/\Ker f$ is a fiber bundle, %check
+and $f$ is smooth, $\overline{f}$ is also smooth, we conclude that $\overline{f}$ is an injective homomorphism of Lie groups. 
+\end{proof}
+
+\begin{corollary}
+Let $f:H\to G$ be a homomorphism of Lie groups. If $f$ is surjective, it is a principal fiber bundle with group $K=\Ker f$. 
+\end{corollary}
+
+\begin{proof}
+%later
+\end{proof}
+
+\subsection{Classification of abelian connected Lie groups.}
+
+\begin{definition}
+A Lie algebra $L$ is abelian if $L=Z(L)$, in other words, the Lie bracket is everywhere $0$. 
+\end{definition}
+
+\begin{proposition}
+A connected Lie group $G$ is abelian if and only if its Lie algebra $\Lie(G)$ is abelian.
+\end{proposition}
+
+\begin{proof}
+If $G$ is abelian, then the adjoint action $\Ad:G\to \GL(\mathfrak{g})$ is constant and $\mathfrak{g}\to\End(\mathfrak{g})$ is everywhere $0$. Conversely, if $\mathfrak{g}=\Lie(G)$ is abelian then for any $X,Y\in\mathfrak{g}$, we have
+\begin{equation*}
+\exp_G(X+Y) = \exp_G(X)\exp_G(Y).
+\end{equation*}
+Thus generators of the Group $G$ commutes, we conclude $G$ is abelian. 
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a connected abelian Lie group then $\exp_G:\mathfrak{g}\to G$ is a surjective homomorphism and its kernel is discrete.
+\end{proposition}
+
+\begin{proof}
+Let $X,Y\in\mathfrak{g}$ and consider two maps
+\begin{equation*}
+t\mapsto\exp_G(t(X+Y)),\quad t\mapsto\exp_G(tX)\exp_G(tY).
+\end{equation*}
+These maps have the same derivatives at $t=0$, namely $X+Y$.\\ %Check.
+\par Since $G$ is abelian, we conclude these are homomorphisms of Lie groups. Therefore, they are equal to one another. We now have that $\exp_G$ is a group homomorphism, and $\exp_G(\mathfrak{g})$ generates $G$, therefore it is surjective. \\
+\par We close the proof by stating that $\Ker\exp_G$ is a closed Lie subgroup with Lie algebra, $\Ker d\exp_G(0)=\{0\}$.
+%later
+\end{proof}
+
+\begin{theorem}
+Let $G$ be a connected abelian then it is isomorphic to $\mathbb{R}^a\times (S^1)^b$ for some integers $a,b$.
+\end{theorem}
+
+\begin{proof}
+%later
+\end{proof}
+
+\subsection{Connected Compact Lie groups}
+
+\begin{proposition}
+Let $G$ be a connected topological group and $\alpha,\beta:[0,1]\to G$ be loops base at the identity $1$. Let us define another loop by
+\begin{equation*}
+\gamma(s) = \alpha(s)\beta(s), \quad s\in[0,1].
+\end{equation*}
+Then in the fundamental group $\pi_1(G)$,  we have
+\begin{equation*}
+[\alpha]*[\beta] = [\gamma]=[\beta]*[\alpha].
+\end{equation*}
+In particular, $\pi_1(G)$ is abelian.
+\end{proposition}
+
+\begin{proof}
+Let us consider the map $H:[0,1]\times[0,1]\to G, H(s,t)=\alpha(s)\beta(t)$. 
+%later
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a connected, locally path connected (hence globally path connected) topological group. View $(G,1)$ as a pointed space and 
+\begin{equation*}
+p:(X,x)\to(G,1)
+\end{equation*}
+be a covering space. Then we have the following statements.
+\end{proposition}
 
 \end{document}

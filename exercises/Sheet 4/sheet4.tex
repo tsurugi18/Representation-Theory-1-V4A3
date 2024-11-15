@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{calrsfs}
+\usepackage{tikz-cd} 
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary}[section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{example}{Example}[section] 
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PreSh}{PreSh}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Lie}{Lie}
+
+
+\title{Representation Theory 1 V4A3 Sheet 4 Exercise 1}
+\author{So Murata}
+\date{2024/2025 Winter Semester - Uni Bonn}
+
+\begin{document}
+\maketitle
+\section*{Exercise 2}
+
+\subsection*{(i)}
+
+Since the characteristic polynomial of $M$ is of degree three in real coefficient, it has at least one real solution $\lambda$. Therefore $M$ is similar to the matrix
+\begin{equation*}
+\begin{pmatrix}
+R&\underline{o}\\
+\underline{o}^T&\lambda
+\end{pmatrix}.
+\end{equation*}
+Since $M$ is orthogonal, we have $M^TM=I$, this means that $\det R=1$ and therefore $\lambda = 1$. By this construction, it obvious that if there are two linearly independent vectors which are the eigenvectors of $M$ with eigenvalue $1$, $M$ is the identity matrix.
+
+\subsection*{(ii)}
+
+Let us define a map
+\begin{equation*}
+\Phi:B\to S^3, \Phi(\psi,\theta,\phi) = (\cos\psi,\sin\psi\cos\theta,\sin\psi\sin\theta\cos\phi,\sin\psi\sin\theta\sin\phi)
+\end{equation*}
+is the global diffeomorphism between $B$ and $S^3$. \\
+\par Let $\pi:B\to B/\sim$ to be a canonical mapping, then this is a quotient map since open set in $U$ of $B$, we have
+\begin{equation*}
+\pi(U) = U\sqcup (-U),
+\end{equation*}
+where $-U$ is the sets of points $(-x,-y,-z)$ in polar coordinate where there exists $(\psi,\theta,\phi)$ represents $(x,y,z)$ in $U$.\\
+\par Let us now define a map 
+\begin{equation*}
+(\psi,\theta,\phi)\mapsto
+T_{E\to C}
+\begin{pmatrix}
+1&\underline{o}^T\\
+\underline{o}&R_\psi
+\end{pmatrix}
+T_{C\to E}
+\end{equation*}
+where $E$ is the standard basis of $\mathbb{R}^3$ and $C$ is the matrix obtained by Gram-Schmidt orthonormalization started from the normalized vector of $(\psi,\theta,\phi)$ in the cartesian coordinate. \\
+\par Then this represents a rotation around a line passing through the origin and $(\psi,\theta,\phi)$. This is a bijection between $B/\sim$ and $\SO(3)$ by the theorem of isometries in three dimensional space.\\
+\par Let us define an operation by 
+\begin{equation*}
+(\psi_1,\theta_1,\phi_1)\cdot(\psi_2,\theta_2,\phi_2) = (\psi_1+\psi_2\mod \pi,\theta,\phi)
+\end{equation*}
+where the line passing through the origin and $(\psi_1+\psi_2\mod \pi,\theta,\phi)$ is orthogonal to both lines passing through $(\psi_1,\theta_1,\phi_1),(\psi_2,\theta_2,\phi_2)$ and the origin if the two lines form a plane. Otherwise, define a rotation with the angle the sum of two rotations. This defines a group operation on $B/\sim$. Furthermore, this makes the bijection into an isomorphism since each rotation is represented as a product of two reflections. 
+
+\subsection*{(iii)}
+
+The map
+\begin{equation*}
+\pi:B\to B/\sim
+\end{equation*}
+is a covering since for an arbitrary point $\underline{x}\in B$. For any ball $U$ around $x$ which does not contain the origin, take $\pi(U)$. Then we have
+\begin{equation*}
+\pi^{-1}(\pi(U)) = U\sqcup -U.
+\end{equation*}
+And any ball $U$ around the origin, we have
+\begin{equation*}
+\pi^{-1}(\pi(U)) = U.
+\end{equation*}
+Therefore, $\pi$ is a covering. Therefore, we can make $B$ into a connected Lie group. We know this is diffeomorphic to $S^3$ by $\Phi$. We claim the statement.
+\end{document}
