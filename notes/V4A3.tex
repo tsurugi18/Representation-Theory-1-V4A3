@@ -1748,7 +1748,124 @@ Let $G$ be a connected, locally path connected (hence globally path connected) t
 \begin{equation*}
 p:(X,x)\to(G,1)
 \end{equation*}
-be a covering space. Then we have the following statements.
+be a covering space. There exists a unique topological group structure on $(X,x)$ with $x$ being the identity which makes $p$ into a group homomorphism. Furthermore, such topological group and a homomorphism has the following properties.
+\begin{enumerate}[1).]
+\item $\Ker(p)$ is central and discrete.
+\item The group of Deck transformations of $p$ is identified with $\Ker(p)$ acting by multiplication.
+\end{enumerate}
 \end{proposition}
+
+\begin{corollary}
+In the above setting, if $G$ i a Lie group, the above construction makes the group $(X,x)$ into a Lie group. Such structure makes $p$ into a Lie group homomorphism and $\Ker(p)$ turns out to be countable.
+\end{corollary}
+
+\begin{proposition}
+Let $G$ be a connected Lie group. Then the universal cover $\tilde{G}$ of $G$ is a connected Lie group.\\
+\par Furthermore, the map $[\alpha]\mapsto\alpha(1):\pi_1(G)\to\tilde{G}$ where
+%later
+\end{proposition}
+
+\begin{proposition}
+Let $f:H\to G$ be a homomorphism of connected Lie groups. Then the following statements are equivalent.
+\begin{enumerate}
+\item $f$ is a covering,
+\item $d f(1)$ is an isomorphism.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{proposition}
+Let $H$ be a connected and simply connected Lie group and $G$ be a Lie group.\\
+\par For any homomorphism $\varphi:\Lie(H)\to\Lie(G)$ of Lie algebras, there exists a homomorphism $f:H\to G$ of Lie groups such that
+\begin{equation*}
+d f(1) = \varphi.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Connected Lie groups that have the same Lie algebra have the same universal cover.
+\end{lemma}
+
+\begin{proof}
+Let $G_1,G_2$ be Lie groups and $\varphi:\Lie(G_1)\to\Lie(G_2)$ is an isomorphism. %later
+\end{proof}
+
+\subsection{Compact Lie algebras}
+
+\begin{definition}
+Let $G$ be a topological group. A finite dimensional representation of $G$ over the field $\mathbb{K}=\mathbb{R},\mathbb{C}$ is a pair $(\pi,V)$ such that
+\begin{enumerate}[i).]
+\item $V$ is a finite dimensional vector space,
+\item $\pi:G\to\GL(V)$ is a continuous group homomorphism. %Check the topology defined on GL(V)
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+If $G$ is a Lie group then $\pi$ is smooth and we can take $\varphi=d\pi(1):\Lie(G)\to\End(V)=\mathfrak{gl}(V)$ a homomorphism of Lie algebras.
+\end{remark}
+
+\begin{definition}
+The adjoint representation of $G$ is the homomorphism 
+\begin{equation*}
+\Ad:G\to\GL(\mathfrak{g})
+\end{equation*}
+such that 
+\begin{equation*}
+\varphi=\ad:\mathfrak{g}\to\mathfrak{gl}(\mathfrak{g})
+\end{equation*}
+is the adjoint representation of $\mathfrak{g}$ on itself.%later
+\end{definition}
+
+\begin{remark}
+G is a connected Lie group then
+\begin{equation*}
+Z(G)=\Im(\Ad).
+\end{equation*}
+Thus it is a closed subgroup. We also have
+\begin{equation*}
+\ad(\Lie(Z(G)) = \Image(\ad).
+\end{equation*}
+\end{remark}
+
+\begin{definition}
+Let $L$ be a Lie algebra over a field $k$.\\
+\par A finite dimensional representation of $L$ is a pair $(\varphi, V)$ consisting of 
+\begin{enumerate}[i).]
+\item $V$ is a finite dimensional vector space,
+\item $\varphi:L\to\mathfrak{gl}(V)$ is a homomorphism of Lie algebras.
+\end{enumerate}
+The adjoint representation is the homomorphism 
+\begin{equation*}
+\ad:L\to\mathfrak{gl}(L), X\to[X,\cdot]
+\end{equation*}
+and $Z(L)=\Im(\ad)$.%Check if this is a proposition
+\end{definition}
+
+\begin{definition}
+Let $L$ be a Lie algebra over a filed $k$ and $(\varphi, V)$ be a finite dimensional representation of $L$.\\
+\par A bilinear form $b:V\times V\to k$ is said to be invariant with respect to the representation if for all $x\in L$ and $v,w\in V$ we have
+\begin{equation*}
+b(\varphi(x)v,w)=-b(v,\varphi(x)w).
+\end{equation*}
+In particular, it is invariant if it is invariant with respect to $\ad$.
+\end{definition}
+
+\begin{remark}
+$b:L\times L\to k$ is invariant if and only if 
+\begin{equation*}
+b([X,Y],Z) = b(X,[Y,Z]).
+\end{equation*}
+\end{remark}
+
+\begin{lemma}
+Let $G$ be a connected Lie group and $L=\Lie(G)$ be a Lie algebra. Let us consider the representation $(\pi,V)$ of $G$ over $\mathbb{R}$ and a invariant bilinear form $b:V\times V\to \mathbb{R}$ with respect to $\pi$
+\end{lemma}
 
 \end{document}
