@@ -1,0 +1,124 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{calrsfs}
+\usepackage{tikz-cd} 
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary}[section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{example}{Example}[section] 
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PreSh}{PreSh}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\Sym}{Sym}
+
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\displaylimits_{#1}}%
+}
+
+\title{Representation Theory 1 V4A3 Sheett 6}
+\author{So Murata}
+\date{2024/2025 Winter Semester - Uni Bonn}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 2}
+
+We have the homeormophism
+
+\begin{equation*}
+\mathfrak{su}_2(\mathbb{R}\tens{\mathbb{R}}\mathbb{C} \cong \mathfrak{sl}_2(\mathbb{C}).
+\end{equation*}
+
+And the fact that for any vector space $V$ and its subspace $W\subseteq V$,
+\begin{equation*}
+W\text{ is $\mathfrak{sl}_2(\mathbb{C})$ invariant.}\Leftrightarrow W\text{ is $\mathfrak{su}_2(\mathbb{R})$ invariant.}
+\end{equation*}
+
+Since $\mathfrak{su}_2(\mathbb{R})$ is connected and simply connected, for any representation $(\rho,V)$ there is a representation $(\pi,V)$ of $\SU_2(\mathbb{R})$ such that 
+\begin{equation*}
+d\pi(1) =\rho.
+\end{equation*}
+
+For any $U\in\SU_2(\mathbb{R})$, there is $X\in\mathfrak{su}_2(\mathbb{R})$ and 
+\begin{equation*}
+\pi(U) = \exp(\rho(X)).
+\end{equation*}
+
+From the elementary linear algebra, we have $U$ is diagonalizable. This is preserved under a group homomorphism thus $\pi(U)$
+is diagonalizable. Again from the elementary linear algebra, we have
+\begin{equation*}
+\exp(\rho(X))\text{ is diagonalizable.}\Leftrightarrow \rho(x)\text{ is diagonalizable.}
+\end{equation*}
+
+By the previous argumentt $\rho(h)$ is diagonalizable. Let $V_1$ be an eigenspace of eigenvalues of $\lambda_1$ of $e$.
+
+Since $\rho$ preserves the bracket we have
+\begin{align*}
+[\rho(h),\rho(e)]V_1 = 2\rho(e)V_1\Rightarrow \rho(h)\rho(e)V_1 = (2+\lambda_1)\rho(e)V_1, \\
+[\rho(h),\rho(f)]V_1 = -2\rho(f)V_1\Rightarrow \rho(h)\rho(f)V_1 = (-2+\lambda_1)\rho(f)V_1. 
+\end{align*}
+
+Solving the system of linear equation, we conclude that it is impossible unless $\rho(e)V_1,\rho(f)V_1$ are $\{o\}$.\\
+
+\par Let us consider an action of $\SU_2(\mathbb{C})$ on $\mathbb{C}[x,y]$, which is by the base change such that for any $f\in\mathbb{C}[v_1,v_2]$ and $P\in\SU_2(\mathbb{C})$ we have
+\begin{equation*}
+P=\begin{pmatrix}a&b\\c&d\\\end{pmatrix},\quad f(v_1,v_2)P = f(av_1+cv_2,bv_1+dv_2).
+\end{equation*}
+\par Denote $V_n$ as the set of homogeneous polynomials of degree $n$. Then we claim this is an invariant subspace of the action. This is because such action is homogeneous linear transformation.\\
+
+\par We learned that the basis of $V=\Sym^n(\mathbb{C}^2)$ is
+\begin{equation*}
+\{v_1^iv_2^{n-i}\}_{i=0,\cdots,n}.
+\end{equation*}
+
+However, for each $v_1^iv_2^{n-i}$ we have
+\begin{equation*}
+hv_1^iv_2^{n-i} = (n-2i)v_1^iv_2^{n-i}.
+\end{equation*}
+
+\par Thus the eigenspace of $\rho(h)$ is the whole space, and thus $\rho(e)V,\rho(f)V=\{o\}$. Thus $V$ is a irreducible representation of $\mathfrak{sl}_2(\mathbb{C})$.\\
+
+\par On the other hands, if $V$ is an irreducible representation of $\mathfrak{sl}_2(\mathbb{C})$, then $\rho(h)$ is a multiple of an identity and $\rho(e),\rho(f)=O$. Thus we conclude the statement holds.
+
+\end{document}

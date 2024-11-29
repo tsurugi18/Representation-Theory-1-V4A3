@@ -43,8 +43,16 @@
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SU}{SU}
 \DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\rad}{rad}
 
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\displaylimits_{#1}}%
+}
 
 \title{Representation Theory 1 V4A3}
 \author{So Murata}
@@ -86,6 +94,115 @@ A topological space is second countable if it has a basis which contains at most
 \begin{definition}
 Let $X,Y$ be topological spaces. A continuous function $f:X\to Y$ is said to be proper if the preimage of arbitrary compact set in $Y$ is again compact.
 \end{definition}
+
+\subsection{Linear Algebra}
+
+\begin{definition}
+Let $V,W$ be finite dimensional $\mathbb{K}$-vector space. The duality pairing is a triplet $(V,W,\langle\cdot,\cdot\rangle)$ where 
+\begin{equation*}
+\langle\cdot,\cdot\rangle:V\times W\to\mathbb{K}
+\end{equation*}
+is a bilinear form such that
+\begin{equation*}
+\forall v\in W, \forall w\in W, \langle v,w\rangle = 0\Rightarrow v = 0,
+\end{equation*}
+and similarly for $\langle\cdot,w\rangle$.
+\end{definition}
+
+\begin{proposition}
+Let $(V,W,\langle\cdot,\cdot\rangle)$ be a duality pairing. Then we have the following isomorphisms
+\begin{equation*}
+V\cong W^*,\quad W\cong V^*.
+\end{equation*}
+\end{proposition}
+
+\begin{lemma}
+Let $(V,W,\langle\cdot,\cdot\rangle)$ be a duality pairing over $\mathbb{R}$. Then we can extend this to a duality pairing over $\mathbb{C}$ by
+\begin{equation*}
+(V\tens{\mathbb{R}}\mathbb{C})\times (W\tens{\mathbb{R}}\mathbb{C})\to\mathbb{C},
+\end{equation*}
+\end{lemma}
+
+\begin{corollary}
+Let $(V,W,\langle\cdot,\cdot\rangle)$ be a duality pairing over $\mathbb{R}$ then we have
+\begin{equation*}
+(V\tens{\mathbb{R}}\mathbb{C})^*\cong W\tens{\mathbb{R}}\mathbb{C}\cong V^*\tens{\mathbb{R}}\mathbb{C}.
+\end{equation*}
+\end{corollary}
+
+\begin{definition}
+Let $V$ be a finite dimensional $\mathbb{R}$ vector space. A subset $R\subseteq V^*$ is called a root system of rank $\dim V$ consisting of roots if it generates $V^*$, for each $\alpha,\beta\in R$, there is a $\alpha^\lor$ such that
+\begin{enumerate}
+\item $\langle\alpha^\lor,\alpha\rangle = 2$,
+\item $s_\alpha:V^*\to V^*$, $s_\alpha(x) = x-\langle\alpha^\lor,x\rangle x$, $s_\alpha(R)\subseteq R$,
+\item $\langle\alpha^\lor,\beta\rangle\in\mathbb{Z}$.
+\end{enumerate}
+And such $\alpha^\lor$ is called a coroot of $\alpha$.
+\end{definition}
+
+\begin{definition}
+A root system $R$ of a vector space $V$ is reduced if for any $\alpha\in R$, we have
+\begin{equation*}
+\forall c\in\mathbb{R}, c\alpha\in R\Rightarrow c = \pm1.
+\end{equation*}
+\end{definition}
+
+\begin{lemma}
+A root system $R$ of a vector space $V$. Each root has a unique coroot.
+\end{lemma}
+
+\begin{remark}
+Denote hyperplanes
+\begin{equation*}
+H_\alpha = \Ker(\langle \cdot,\alpha\rangle)\subseteq V, \quad H_{\alpha^\lor} = \Ker(\langle\alpha^\lor,\cdot\rangle)\subseteq V^*.
+\end{equation*}
+By the definition, $\alpha^\lor\not\in H_\alpha,\alpha^\lor\not\in H_{\alpha^\lor}$.\\
+\par Observe that for any $x\in H_{\alpha^\lor}$, we have
+\begin{equation*}
+s_\alpha(x) = x.
+\end{equation*}
+While for $\alpha$ we have
+\begin{equation*}
+s_\alpha(\alpha) = -\alpha.
+\end{equation*}
+From this observation, we conclude that $s_\alpha$ is a reflection onto the hyperplane $H_{\alpha^\lor}$.
+\end{remark}
+
+\begin{definition}
+Let $R$ be a root system of a vector space $V$. For $\alpha\in V$ we denote,
+\begin{equation*}
+H_\alpha = \Ker(\langle \cdot,\alpha\rangle)\subseteq V, \quad H_{\alpha^\lor} = \Ker(\langle\alpha^\lor,\cdot\rangle)\subseteq V^*
+\end{equation*}
+which are called the root hyperplanes.
+\end{definition}
+
+\begin{definition}
+Let $R$ be a root system of a vector space $V$. The connected components of 
+\begin{equation*}
+V\backslash\bigcup_{\alpha\in R}H_\alpha
+\end{equation*}
+are called the Weyl chambers.
+\end{definition}
+
+\begin{definition}
+Let $V_1,V_2$ be finite dimensional vector spaces and $R_1,R_2$ be their root systems, respectively.\\
+\par An isomorphism of root systems $f:V_1\to V_2$ is an isomorphism of vector spaces which satisfies that 
+\begin{equation*}
+f(R_1) = R_2, \quad \forall \alpha,\beta\in R_1, \langle f(\alpha)^\lor,f(\beta)\rangle = \langle\alpha^\lor,\beta\rangle.%check
+\end{equation*}
+\end{definition}
+
+\begin{proposition}
+Let $V$ be a finite dimensional vector space and $R$ be its root system. Then 
+\begin{equation*}
+R^\lor = \{\alpha^\lor\:|\: \alpha\in R\}
+\end{equation*}
+is a root system in $V$.
+\end{proposition}
+
+\begin{remark}
+Such $R^\lor$ is called a dual root system of $V$.
+\end{remark}
 
 \subsection{Group Theory}
 
@@ -1849,6 +1966,15 @@ and $Z(L)=\Im(\ad)$.%Check if this is a proposition
 \end{definition}
 
 \begin{definition}
+Let $G$ be a connected Lie group and $k$ be a field. For the Lie algebra $\mathfrak{g}=\Lie(G)$ and a finite dimensional representation $(\pi,V)$ of $\mathfrak{g}$, a bilinear form $b$% later
+is said to be invariant with respect to $\pi$ if for any $v,w\in $%later
+and for any $g\in G$ we have
+\begin{equation*}
+b(\pi(g)v,\pi(g)w) = b(v,w).
+\end{equation*}
+\end{definition}
+
+\begin{definition}
 Let $L$ be a Lie algebra over a filed $k$ and $(\varphi, V)$ be a finite dimensional representation of $L$.\\
 \par A bilinear form $b:V\times V\to k$ is said to be invariant with respect to the representation if for all $x\in L$ and $v,w\in V$ we have
 \begin{equation*}
@@ -1865,7 +1991,688 @@ b([X,Y],Z) = b(X,[Y,Z]).
 \end{remark}
 
 \begin{lemma}
-Let $G$ be a connected Lie group and $L=\Lie(G)$ be a Lie algebra. Let us consider the representation $(\pi,V)$ of $G$ over $\mathbb{R}$ and a invariant bilinear form $b:V\times V\to \mathbb{R}$ with respect to $\pi$
+Let $G$ be a connected Lie group and $L=\Lie(G)$ be a Lie algebra. Let us consider the representation $(\pi,V)$ of $G$ over $\mathbb{R}$ and a invariant bilinear form $b:V\times V\to \mathbb{R}$ with respect to $\pi$. The $b$ is invariant with respect ot $\varphi = d\pi(1)$.
 \end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Let $V$ be a finite dimensional $k$-vector space. We have that the bilinear form
+\begin{equation*}
+\tr:\mathfrak{gl}(V)\times\mathfrak{gl}(V)\to k, \quad (X,Y)\mapsto \tr(XY)
+\end{equation*}
+is a symmetric and invariant bilinear form. %later with respect to which
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{remark}
+For map $\varphi:L\to \mathfrak{gl}(V)$ we can pull-back the trace form to get an invariant symmetric bilienar form on $L$. %later.
+\end{remark}
+
+\begin{definition}
+Let $L$ be a Lie algebra and $k$ be a field. The killing form $\kappa:L\times L\to k$ is the pull-back of the trace form on the adjoint representation. In other words, for any $X,Y\in L$, 
+\begin{equation*}
+\kappa(X,Y) = \tr(\ad(X)\circ\ad(Y)).
+\end{equation*}
+\end{definition}
+
+\begin{corollary}
+The killing form $\kappa:L\times L\to k$ is asymmetric bilinear form on $L$. %later
+\end{corollary}
+
+\begin{proof}
+%later
+\end{proof}
+
+\subsection{Ideals of Lie Algebras and (Semi)Simplicity}
+
+\begin{definition}
+Let $L$ be a Lie algebra. A vector subspace $I$ of $L$ is called an ideal if we have
+\begin{equation*}
+[I,L]\subseteq I.
+\end{equation*}
+\end{definition}
+
+\begin{remark}
+An ideal of a Lie algebra is a subalgebra but the converse, a subalgebra needs not be an ideal. %later
+\end{remark}
+
+\begin{proposition}
+Given a Lie algebra $L$ and a representation $(\varphi, V)$ of it , the following are ideals of $L$
+\begin{enumerate}
+\item The center $Z(L)$.
+\item $[L, L] = \Span([X,Y]\:|\: X,Y\in L)$.
+\item $\Ker\varphi$.
+\item The left and right kernels of an invariant bilinear form $b:L\times L\to k$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Let $L$ be a Lie algebra and $I$ be its ideal. Then we can imbed the structure of Lie algebra on $L/I$ with the bracket operator inherited from $L$.
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Let $L$ be a Lie algebra and $I$ be its ideal.\\
+\par Then the killing form on $L/I$ is the restriction of the killing form of $L$. In particular, when $I=Z(L)$, the projection identifies the killing form.
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{definition}
+A Lie algebra $L$ is said to be simple if $L$ is not abelian and has non-trivial proper ideals. %later
+\end{definition}
+
+\begin{definition}
+A Lie algebra $L$ is said to be semi-simple if it is a direct sum of simple ideals.
+\end{definition}
+
+\begin{definition}
+A Lie algebra $L$ is said to be reductive if $L=Z(L)\oplus[L,L]$ and $[L,L]$ is semi-simple.
+\end{definition}
+
+\begin{lemma}
+Let $L$ be a semi-simple Lie algebra. Then $L$ is the direct sum of all of its simple ideals.
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{corollary}
+If $L$ is a semi-simple Lie algebra then we have the following statements.
+\begin{enumerate}
+\item Any ideal on quotient is semi-simple,
+\item $[L,L]=L$,
+\item $Z(L)=0$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+%later
+\end{proof}
+
+
+\begin{proposition}
+If the killing form of a Lie algebra is definite as a bilinear form, then the Lie algebra is semi-simple.
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{proposition}
+If the killing form is definite then the Lie algebra is reductive.
+\end{proposition}
+
+\begin{definition}
+Let $k$ be a field and $L$ be a Lie algebra over $k$.\\
+\par A derivative $d:L\to L$  on $L$ is a linear map such that for any $X,Y\in L$ we have
+\begin{equation*}
+d([X,Y]) = [d(X),Y] +[X,d(Y)].
+\end{equation*}
+We further define the set of all derivatives on $L$ to be $\Der(L)$.
+\end{definition}
+
+\begin{lemma}
+Such $\Der(L)$ is a subalgebra of the space $\mathfrak{gl}$ and contains the image of the adjoint representation.
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+For any derivation $d$ on $L$, we have
+\begin{equation*}
+d(Z(L)) \subseteq Z(L).
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{definition}
+Let $L$ be a Lie algebra over $\mathbb{R}$. Then the group of automorphisms of $L$ as a $\mathbb{R}$-vector space is denoted by $\GL(L)$.
+\end{definition}
+
+\begin{lemma}
+Let $M\subseteq L$ be a subalgebra of a Lie algebra. Then for any automorphisms $\varphi:M\to M$, there is an automorphism $\overline{\varphi}:L\to L$ which is an extension of $\varphi$.
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Let $L$ be a Lie algebra and $\delta\in\Der(L)$. Then for the exponential map
+\begin{equation*}
+\exp:\mathfrak{gl}(L)\to\GL(L),
+\end{equation*}
+we have
+\begin{equation*}
+\exp(\delta)\in \GL(L).
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Let $M$ be a subalgebra of a Lie algebra $L$ and $\varphi\in \Aut(M)$. THen we hav
+\begin{equation*}
+d\varphi(1)\in\Der(L).
+\end{equation*}
+\end{lemma}
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Let $L$ be a Lie algebra. The natural action of $\Ad(L)$ on $Z(L)$ is trivial.
+\end{lemma}
+
+\begin{proof}
+Let $X\in\Ad(L)$ and $Z\in Z(L)$. The we have
+\begin{equation*}
+\ad(X)(Z) = 0.
+\end{equation*}
+This shows that 
+\begin{equation*}
+\exp(\ad(X))\cdot Z = Z.
+\end{equation*}
+%later.
+\end{proof}
+
+\begin{lemma}
+Let $L$ be a Lie algebra and $M$ be a subalgebra of $L$. Then $\Aut(M)$ is a closed subgroup of $\GL(L)$ with the following property.
+\begin{equation*}
+\Aut(M)\subseteq O(L)\cap \Der(L).
+\end{equation*}
+\end{lemma}
+
+\begin{proposition}
+Let $L$ be a Lie algebra over $\mathbb{R}$. Then $\GL(L)$ is a Lie group of automorphisms of $L$ as a $\mathbb{R}$-vector space. Let $L'$ be a subalgebra of $L$ and denote $\Aut(L')$ to be the automorphisms of $L'$.\\
+\par $\Aut(L')$ is a closed subgroup of $\GL(L)$ and it lies in $O(k)$ with its Lie algebra $\Der(L)$.
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Let $L$ be a Lie algebra. There is a natural homomorphism between $\Aut(L)$ and $\Aut(L/Z(L))$. Furthermore, if $L/Z(L)$ is semi-simple, the homomorphism is an isomorphism.
+\end{lemma}
+
+\begin{proof}
+%later.
+\end{proof}
+
+\subsection{Compact Lie algebra}
+
+\begin{definition}
+A Lie algebra $L$ over $\mathbb{R}$ is said to be compact if its killing form over $L/Z(L)$ is negative definite.
+\end{definition}
+
+\begin{definition}
+Let $L$ be a Lie algebra. The radical of $L$ is such that
+\begin{equation*}
+\rad(L) = \{X\in L\:|\: [X,\cdot]=0\}.
+\end{equation*}
+\end{definition}
+
+\begin{lemma}
+Let $L$ be a compact Lie algebra then
+\begin{equation*}
+Z(L) = \rad(L).
+\end{equation*}
+\end{lemma}
+
+\begin{lemma}
+Let $L$ be a compact Lie algebra. Then the following are equivalent.
+\begin{enumerate}
+\item $Z(L)$,
+\item the killing form $\kappa$ is non-degenerate (more negative definite),
+\item $L$ is semi-simple.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Let $L$ be a Lie algebra. For $X\in L$ and $\delta\in \Der(L)$, we have
+\begin{equation*}
+[X,\delta]_{\Der(L)} = -\delta(X).
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{proposition}
+Let $L$ be a compact and semi-simple then we have the following statement.
+\begin{enumerate}
+\item $\ad:L\to\Der(L)$ is an isomorphism,
+\item $\Ad(L)=\Aut(L)^O$, in particular, it is closed in $\Aut(L)$,
+\item the adjoint action of $\Aut(L)$ on its Lie algebra $\Der(L)$ is translated under $1$, which is the tautological action of $\Aut(L)$ on $L$,
+\item $\Ad(L)$ has a trivial center.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{proposition}
+The following statements are equivalent for a Lie algebra $L$.
+\begin{enumerate}
+\item $\Ad(L)$ is a compact Lie group.
+\item For $X\in L$, the curve $\gamma:\mathbb{R}\to\mathfrak{gl}(L), \gamma(t) = \exp(\ad(tX))$ is bounded.
+\item For $X\in L$, $\ad(X)\in\mathfrak{gl}(L)$ is diagonalizable with purely imaginary eigenvalues.
+\item $L$ is a compact Lie algebra.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a Lie group and $\mathfrak{g}$ be its Lie algebra.\\
+\par If $G$ is compact, then $\mathfrak{g}$ is compact.\\
+\par Also if $\mathfrak{g}$ is compact and semi-simple, then $G$ is compact.
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\subsection{Integration and Complete Reducibility}
+
+\begin{definition}
+A finite dimensional representation of a group of Lie algebra is called irreducible if it has no non-zero proper subspace. It is said to be completely irreducible if it is the direct sum of irreducibles, and indecomposable if it is not the direct sum of two proper non-zero invariant subgroups. %refine the def later
+\end{definition}
+
+\begin{example}
+Let us define a map $\varphi:\mathbb{R}\to\End(\mathbb{R}^n)$,
+\begin{equation*}
+\varphi(x) = 
+\begin{pmatrix}
+1&x\\
+0&1
+\end{pmatrix}
+.
+\end{equation*}
+%later
+\end{example}
+
+\begin{theorem}
+Let $G$ be a compact topological group. Then there exists a unique linear functional 
+\begin{equation*}
+\mathcal{C}(G,\mathbb{C})\to\mathbb{C},\quad f\mapsto \int_G f(g)dg
+\end{equation*}
+such that
+\begin{enumerate}
+\item for any $g\in G$, $f(g)>0$ then $\int_G f dg >0$,
+\item for each $g\in G$, $\int_G f(gh)dh = \int_G f(g)dg = \int_G f(hg)dh$,
+\item $\int_G 1_G dg = 1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a compact topological group and $H$ be its closed subgroup. Then we have
+\begin{equation*}
+\int_G f(g)dg = \int_{G/H}\int_H f(gh)dhd(g+H).
+\end{equation*}
+%later
+\end{proposition}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+Let $G$ be a compact topological group and $(\pi,V)$ be a finite dimensional representation of $G$.\\
+\par Then there exists a $G$-invariant scalar product on $V$.
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{corollary}
+Let $G$ be a compact Lie group. There exists a $G$-invariant scalar product on $\Lie(G)$. %later
+\end{corollary}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a compact topological group and $(\pi,V)$ be a finite dimensional representation of it. Then $G$ is completely irreducible.
+\end{proposition}
+\begin{proof}
+%later
+\end{proof}
+
+\subsection{Special Examples}
+
+\begin{definition}
+We have the following groups
+\begin{equation*}
+\SL_2(\mathbb{R}) = \{A\in\GL_2(\mathbb{R})\:|\: \det(A) = 1\}, \quad \mathfrak{sl}_2(\mathbb{R})=\{A\in R^{2\times 2}\:|\: \tr A = 0\}.
+\end{equation*}
+\end{definition}
+
+\begin{lemma}
+Let 
+\begin{equation*}
+H = \begin{pmatrix} 1&0\\0&-1\end{pmatrix},\quad E=\begin{pmatrix} 0&01\\0&0\end{pmatrix},\quad F=\begin{pmatrix} 0&0\\1&-0\end{pmatrix}.
+\end{equation*}
+Then $\{H,E,F\}$ forms a basis in $\mathfrak{sl}_2(\mathbb{R})$ with following property,
+\begin{equation*}
+\kappa(E,F) = 4,\quad\kappa(E,E)=\kappa(F,F)=0,\quad\kappa(H,H) = 8.
+\end{equation*}
+Furthermore $\mathfrak{sl}_2(\mathbb{R})$ is not compact if and only if $\kappa $ is not negative definite.
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{definition}
+\begin{equation*}
+\SU_2(\mathbb{R})=\{A\in\SL_2(\mathbb{C})\:|\: v,w\in\mathbb{C}^2, \langle Av,Aw\rangle = \langle v,w\rangle\}
+\end{equation*}
+where
+\begin{equation*}
+v = (v_1,v_2), w = (w_1,w_2), \langle v,w\rangle = v_1\overline{w_1}+v_2\overline{w_2}.
+\end{equation*}
+\end{definition}
+
+\begin{lemma}
+\begin{equation*}
+\SU_2(\mathbb{R}) = \left\{\begin{pmatrix}a&-b\\ b&\overline{a}\end{pmatrix}\:\bigg{|}\: a,b\in\mathbb{C}, |a|^2+|b|^2 = 1\right\},
+\end{equation*}
+which is a connected and simply connected Lie group. And by immediate computation we see that 
+\begin{equation*}
+\SU_2(\mathbb{R})\cong S^3\subseteq\mathbb{R}^4.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{lemma}
+\begin{equation*}
+\mathfrak{su}_2(\mathbb{R})=\{A\in\mathbb{C}^{2\times 2}\:|\: A^* = -A,\tr(A) = 0\} = \left\{\begin{pmatrix}ia&b\\-\overline{b}&-ia\end{pmatrix}\:\bigg{|}\: a\in\mathbb{R},b\in\mathbb{C}\right\}.
+\end{equation*}
+which is a vector space of dimension $3$. We can take a basis
+\begin{equation*}
+I = \begin{pmatrix}i&0\\0&-i\end{pmatrix},J = \begin{pmatrix}0&-1\\1&0\end{pmatrix},I = \begin{pmatrix}0&-i\\-i&0\end{pmatrix}.
+\end{equation*}
+By calculating we derive
+\begin{equation*}
+[I,J]=2K,\quad [J,K]-2J],\quad [I,K]=2I.
+\end{equation*}
+And we also have for any $X\in\mathfrak{su}_2(\mathbb{R})$
+\begin{equation*}
+\kappa(X,X) = -2(a^2+b\overline{b})<0,
+\end{equation*}
+thus it is a negative definite. We conclude $\mathfrak{su}_2(\mathbb{R})$ is compact.
+\end{lemma}
+
+\begin{proof}
+%later
+\end{proof}
+
+\begin{remark}
+Let $V$ be a finite dimensional $\mathbb{R}$-vector space. We denote
+\begin{equation*}
+V_{\mathbb{C}} = V\tens{\mathbb{R}}\mathbb{C},
+\end{equation*}
+which is a finite dimensional $\mathbb{C}$-vector space. In particular 
+\begin{equation*}
+\dim_\mathbb{C}(V_\mathbb{C}) = \dim_\mathbb{R}(V).
+\end{equation*}
+Let $W\subset V$ be a subspace. Then the map
+\begin{equation*}
+W\mapsto W\tens{\mathbb{R}}\mathbb{C} = W_{\mathbb{C}}
+\end{equation*}
+defines a bijection between the subspaces of $V$ and the subspaces of $V_\mathbb{C}$ which is $\sigma$-invariant where
+$\sigma$ is the complex conjugation.
+\end{remark}
+
+\begin{definition}
+Let $L$ be a Lie algebra and $e,f,h\in L$ be elements such that 
+\begin{equation*}
+[h,e]=2e,\quad[h,f]=-2f,\quad[e,f]=h.
+\end{equation*}
+We call such $(e,f,h)$ a $\mathfrak{sl}_2$-triplet.
+\end{definition}
+
+\begin{definition}
+Let $L$ be a Lie algebra and $i,j,k\in L$ be elements such that 
+\begin{equation*}
+[i,j]=2k,\quad[i,h]=-2j,\quad[j,k]=2i.
+\end{equation*}
+We call such $(i,j,k)$ a $\SU_2$-triplet.
+\end{definition}
+
+\begin{remark}
+If $(e,h,f)$ is a $\mathfrak{sl}_2$-triplet in $L$. We get a homomorphism, similarly for a $\SU_2$-triplet $(i,j,k)$.
+\end{remark}
+
+\begin{example}[Representations of $\mathfrak{sl}_2(\mathbb{C})$]
+%later
+\end{example}
+
+\begin{proposition}
+Every finite dimensional representation of $\mathfrak{sl}_2(\mathbb{C})$ is isomorphic to a unique %later
+\end{proposition}
+
+\begin{lemma}
+Let $(\pi,V)$ be a representation of $\mathfrak{sl}_2(\mathbb{C})$ and let $\rho = d\pi(1)$. Then the following are equivalent for a subspace $W$ of $V$.
+\begin{enumerate}
+\item $W$ is $\rho$-invariant.
+\item $W$ is $\pi$-invariant.
+\end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+Every finite dimensional representation of $\mathfrak{sl}_2(\mathbb{C})$ id completely reducible.
+\end{theorem}
+
+\begin{definition}
+Let $V$ be a finite dimensional representation of $\mathfrak{sl}_2(\mathbb{C})$. An eigenvalue of $h$ of the triplet is called a weight. The dimension of the eigenspace corresponding to the eigenvalue is called the multiplicity of the weight.
+\end{definition}
+
+\begin{lemma}
+Let $(\pi,V)$ be a finite representation of $\mathfrak{sl}_2(\mathbb{C})$. Then we have the following statements
+\begin{enumerate}
+\item The weights of $V$ are integers.
+\item The isomorphic classes of $V$ is determined by the function $m:\mathbb{Z}\to \mathbb{N}$ which sends a weight to its multiplicity.
+\item $m(1)$ is equal to the number of irreducible constant of $V$ with odd weights.
+\item $m(0)$ is equal to the number of irreducible constant of $V$ with even weights.
+\end{enumerate}
+\end{lemma}
+
+\begin{definition}
+Let $L$ be a semi-simple Lie algebra over $\mathbb{C}$. %later
+\end{definition}
+
+\begin{definition}
+Let $L$ be a Lie algebra. $X\in L$ is said to be $\ad$-semi-simple if $\ad(X)\in\End(L)$ is diagonalizable. 
+\end{definition}
+
+\begin{definition}
+Let $L$ bea. Lie algebra. $T\subseteq L$ is called a Cartan subalgebra if $T$ is maximal abelian subalgebra consisting of $\ad$-semi-simple elements.
+\end{definition}
+
+\begin{lemma}
+Let $\mathfrak{g}$ be a real compact semi-simple Lie algebra and $L=\mathfrak{g}\tens{\mathbb{R}}\mathbb{C}$. Then the map
+\begin{equation*}
+\varphi:\mathfrak{g}\to L,\quad \varphi(t) = t\tens{\mathbb{R}}\mathbb{C}=T
+\end{equation*}
+is a bijection between
+\begin{equation*}
+\{\text{Maximal abelian subalgebras }\mathfrak{t}\subseteq\mathfrak{g}\}\leftrightarrow \{\text{ Complex conjugate invariant maximal subalgebra }T\subseteq L\}.
+\end{equation*}
+Every such $T$ consists of $\ad$-semi-simple elements.
+\end{lemma}
+
+\begin{definition}
+Let $L$ be a Lie algebra. For any subspace $V$ of $L$, we define
+\begin{enumerate}
+\item the centralizer of $V$ is $Z_L(V)=\{X\in L\:|\: [X,V] = 0\}$,
+\item the normalizer of $V$ is $N_L(V)=\{X\in L\:|\: [X,L]\subseteq V\}$
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+Let $L$ be a Lie algebra and $T\subseteq L$ be a Cartan subalgebra. Then we have
+\begin{equation*}
+Z_L(T) = T.
+\end{equation*}
+\end{lemma}
+
+\begin{definition}
+Let $L$ be a Lie algebra and $T$ be a Cartan subalgebra. For any $\alpha\in T^* = \Hom_{\mathbb{C}}(T,\mathbb{C})$, we define
+\begin{equation*}
+L_\alpha = \{X\in L\:|\: \forall t\in T, \ad(t)(X)=d(t)\cdot X\}.
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+Let $L$ be a Lie algebra and $T$ be a Cartan subalgebra. Then we have
+\begin{equation*}
+L = \bigoplus_{\alpha\in T^*} L_\alpha.
+\end{equation*}
+\end{theorem}
+
+\begin{remark}
+\begin{equation*}
+L_0 = Z_L(T) = T.
+\end{equation*}
+\end{remark}
+
+\begin{definition}
+Let $L$ be a Lie algebra and $T$ be its Cartan subalgebra. We define
+\begin{equation*}
+\Phi(T,L) = \{\alpha\in T^*\:|\: \alpha\not=0, L_\alpha\not=0\}.
+\end{equation*}
+\end{definition}
+
+\begin{lemma}
+Let $L$ be a Lie algebra and $T$ be its Cartan subalgebra. We have $\Phi(T,L)$ is finite and generates $T^*$.
+\end{lemma}
+
+\begin{remark}
+By definition $\Phi(T,L)\subseteq T*$ is finite and 
+\begin{equation*}
+L= T\oplus\bigoplus_{\alpha\in\Phi(T,L)}L_\alpha.
+\end{equation*}
+\end{remark}
+
+\begin{lemma}
+Let $L$ be a Lie algebra and $T$ be its Cartan subalgebra. For $\alpha,\beta\in T^*$, we have
+\begin{enumerate}
+\item $[L_\alpha,L_\beta]\subseteq L_{\alpha+\beta}$,
+\item if $X\in L_\alpha, \alpha\not=0$, then $\ad(X)$ is nilpotent,
+\item if $\alpha=-\beta$ then $L_\alpha\perp_{\kappa} L_\beta$.
+\end{enumerate}
+\end{lemma}
+
+\begin{corollary}
+Let $L$ be a Lie algebra and $T$ be its Cartan subalgebra. We have
+\begin{equation*}
+\alpha\in\Phi(T,L)\Rightarrow -\alpha\in\Phi(T,L).
+\end{equation*}
+Furthermore, we have
+\begin{equation*}
+L = T\oplus\bigoplus_{\pm\alpha\in \Phi(T,L)/I} (L_\alpha\oplus L_{-\alpha}).
+\end{equation*}
+\end{corollary}
+
+\begin{corollary}
+Let $\mathfrak{g}$ be a Lie algebra and $\mathfrak{t}\subseteq \mathfrak{g}$, we set
+\begin{equation*}
+L = \mathfrak{g}\tens{\mathbb{R}}\mathbb{C}, \quad T = \mathfrak{t}\tens{\mathbb{R}}\mathbb{C}.
+\end{equation*}
+The restriction of $\kappa$ to each summand in
+\begin{equation*}
+L = T\oplus\bigoplus_{\pm\alpha\in \Phi(T,L)/I} (L_\alpha\oplus L_{-\alpha}).
+\end{equation*}
+is Lie algebra%check
+\\
+\par And $\kappa:L_\alpha\to\mathbb{C}$ is a perfect pairing.
+\end{corollary}
+
+\begin{lemma}
+Let $L$ be a Lie algebra and $T$ be its Cartan subalgebra. For $X\in L_\alpha$ and $Y\in L_{-\alpha}$ we have
+\begin{equation*}
+[X,Y] = \kappa(X,Y)\cdot t_{\alpha}.
+\end{equation*}
+\end{lemma}
+
+\begin{remark}
+Let $\sigma$ denotes the complex conjugation. Then $\sigma$ acts on a Lie algebra $L$ over $\mathbb{C}$ which preserves a Cartan subalgebra $T$. In deed we have
+\begin{equation*}
+\alpha\in\Phi(T,L),\quad (\sigma\alpha)(t) = \sigma(\alpha(\sigma^{-1}(t)).
+\end{equation*}
+\end{remark}
+
+\begin{lemma}
+Let $L$ be a Lie algebra, and $T$ be its Cartan subalgebra, and $\sigma$ be a complex conjugate. We have
+\begin{enumerate}
+\item For any $\alpha\in\Phi(T,L)$, $\sigma\alpha=-\alpha$.
+\item $(i\cdot t_\alpha)\alpha\in\Phi(T,L)$ generates $T^\sigma$, and $(i\cdot\alpha)_\alpha$ generates $T^{*,\sigma} = T^*$.
+\item $\kappa(t_\alpha,t_\alpha)>0$.
+\item $h_\alpha = {\frac {2t_\alpha} {\kappa(t_\alpha,t_\alpha}}$ is well-defined, $\kappa(h_\alpha,h_\alpha)>0$, $\alpha(h_\alpha)=2$.
+\item For any $\alpha\in\Phi(T,L)$ there is some $e\in L_\alpha$ such that $[e,\sigma(e)]=-h_{\alpha}$.
+\item For such $e$ and $f=-\sigma(e),h=h_\alpha$ is a $\mathfrak{sl}_2$-triplet.
+\end{enumerate}
+\end{lemma}
+
+\begin{remark}
+There is not $e\in L_\alpha$ such that
+\begin{equation*}
+[e,\sigma(e)] = h_\alpha.
+\end{equation*}
+\end{remark}
+
+\begin{proposition}
+Let $L$ be a Lie algebra and $T$ be its Cartan subalgebra. For $\alpha,\beta\in\Phi(T,L)$ we have
+\begin{enumerate}
+\item $\dim L_\alpha = 1$,
+\item If $c\in\mathbb{C}$ is such that $c\alpha\in \Phi(T,L)$ then $c=\pm1$.
+\item If $\alpha+\beta\in\Phi(T,L)$ then $[L_\alpha,L_\beta] = L_{\alpha+\beta}$.
+\item $\beta(h_\alpha)\in\mathbb{Z}$ and $\beta-\beta(h_\alpha)\alpha\in\Phi(T,L)$.
+\item Assume $\alpha\not=\pm\beta$, let $r,q\in\mathbb{N}$ be the largest such that $\beta-r\alpha,\beta+q\alpha\in\Phi(T,L)$, then $\beta+n\alpha\in\Phi(T,L)\Leftrightarrow n\in[-r,q]\cap\mathbb{Z}$ and $r-q = \beta(h_\alpha)$.
+\end{enumerate}
+\end{proposition}
 
 \end{document}

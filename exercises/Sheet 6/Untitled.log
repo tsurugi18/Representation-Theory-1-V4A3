@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.13)  29 NOV 2024 00:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.13)  29 NOV 2024 18:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**V4A3.tex
-(./V4A3.tex
+**Untitled.tex
+(./Untitled.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -507,8 +507,9 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \c@corollary=\count305
 \c@terminology=\count306
 \c@example=\count307
- (./V4A3.aux)
-\openout1 = `V4A3.aux'.
+
+No file Untitled.aux.
+\openout1 = `Untitled.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
@@ -524,7 +525,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
-
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count308
@@ -564,378 +564,28 @@ LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/calrsfs/OMSrsfs.fd) [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 158--160
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-
- []
-
-[3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 326--328
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--357
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
-
- []
-
-[6]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 440
-.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-Underfull \hbox (badness 10000) in paragraph at lines 452--454
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 487--489
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 552--554
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 554--555
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 555--556
-
- []
-
-
-Overfull \hbox (15.24367pt too wide) in paragraph at lines 591--592
-[]\OT1/cmr/m/it/10 For any chart $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 U; '\OT1/cm
-r/m/n/10 )$ \OT1/cmr/m/it/10 around $\OML/cmm/m/it/10 p$ \OT1/cmr/m/it/10 with 
-a ba-sis $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 e[]; []  ; e[]\OMS/cmsy/m/n/10 g$ 
-\OT1/cmr/m/it/10 and for any $\OML/cmm/m/it/10 i[]; []  ; i[] \OMS/cmsy/m/n/10 
-2
- []
-
-[9]
-Overfull \hbox (5.76689pt too wide) detected at line 638
-[]
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 709--710
-
- []
-
-
-Overfull \hbox (66.12196pt too wide) detected at line 715
-[]
- []
-
-[11]
-Overfull \hbox (73.56334pt too wide) detected at line 748
-[]
- []
-
-
-Overfull \hbox (101.55124pt too wide) detected at line 759
-[]
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 770--771
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 857--858
-
- []
-
-[14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 937--939
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 964--966
-
- []
-
-[16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 1080--1081
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1082
-
- []
-
-[18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 1166--1167
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1167--1168
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1177--1179
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1194--1195
-
- []
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 1216--1220
-
- []
-
-
-Overfull \hbox (1.09506pt too wide) in paragraph at lines 1238--1239
-[]\OT1/cmr/m/it/10 If $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 G 
-\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H$ \OT1/cmr/m/it/10 is a ho-mo-mor-phism of
- Lie groups, then $\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 ^^N [][] \OT1/cmr/m/n/10
- = [][] \OMS/cmsy/m/n/10 ^^N\OML/cmm/m/it/10 df\OT1/cmr/m/n/10 (1)$\OT1/cmr/m/i
-t/10 . 
- []
-
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 1274--1275
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1276--1277
-
- []
-
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 1323--1324
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1366--1368
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 1399--1400
-
- []
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 1456--1457
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1457--1458
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1465--1467
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1474--1476
-
- []
-
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 1491--1494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1547--1548
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1551--1553
-
- []
-
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 1568--1570
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1570--1571
-
- []
-
-
-LaTeX Warning: Command \o invalid in math mode on input line 1589.
-
-[27] [28]
-Overfull \hbox (22.86562pt too wide) detected at line 1699
-[][][]\OML/cmm/m/it/10 l[]\OT1/cmr/m/n/10 ([][](\OML/cmm/m/it/10 tX\OT1/cmr/m/n
-/10 )) = [][][]\OML/cmm/m/it/10 l[]\OT1/cmr/m/n/10 ([][]((\OML/cmm/m/it/10 t[] 
-\OT1/cmr/m/n/10 + \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 X\OT1/cmr
-/m/n/10 )) = \OML/cmm/m/it/10 dl[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m
-/n/10 )(\OML/cmm/m/it/10 dl[]\OT1/cmr/m/n/10 (1)(\OML/cmm/m/it/10 X\OT1/cmr/m/n
-/10 )) = 0\OML/cmm/m/it/10 :
- []
-
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1739--1741
-
- []
-
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 1744--1746
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1746--1747
-
- []
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 1817--1819
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1819--1820
-
- []
-
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 1868--1869
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1886--1887
-
- []
-
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 1943--1944
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1966--1967
-
- []
-
-[34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 2055--2056
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2110--2111
-
- []
-
-[36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 2198--2199
-
- []
-
-[38]
-Underfull \hbox (badness 10000) in paragraph at lines 2287--2288
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2288--2289
-
- []
-
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 2345--2346
-
- []
-
-[40] [41] [42]
-Overfull \hbox (88.94711pt too wide) detected at line 2531
-\OMS/cmsy/m/n/10 f[]\U/euf/m/n/10 t \OMS/cmsy/m/n/10 ^^R \U/euf/m/n/10 g\OMS/cm
-sy/m/n/10 g $ f[]\OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 L\OMS
-/cmsy/m/n/10 g\OML/cmm/m/it/10 :
- []
-
-[43]
-Underfull \hbox (badness 10000) in paragraph at lines 2616--2619
-
- []
-
-[44] [45] (./V4A3.aux)
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Unti
+tled.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 14848 strings out of 474116
- 308936 string characters out of 5743682
- 1943187 words of memory out of 5000000
- 36927 multiletter control sequences out of 15000+600000
- 570623 words of font info for 86 fonts, out of 8000000 for 9000
+ 14740 strings out of 474116
+ 306969 string characters out of 5743682
+ 1926187 words of memory out of 5000000
+ 36838 multiletter control sequences out of 15000+600000
+ 563509 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,13n,121p,459b,285s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></
-usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
-local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
-cal/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loca
-l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/te
-xlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texl
-ive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive
-/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
-24/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/202
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/tex
-mf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/t
-exmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2024/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2
-024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texliv
-e/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on V4A3.pdf (45 pages, 390173 bytes).
+ 116i,6n,121p,452b,220s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on Untitled.pdf (1 page, 32960 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
+ 26 PDF objects out of 1000 (max. 8388607)
+ 16 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
