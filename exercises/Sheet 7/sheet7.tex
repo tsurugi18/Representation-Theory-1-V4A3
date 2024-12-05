@@ -1,0 +1,102 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{calrsfs}
+\usepackage{tikz-cd} 
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary}[section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{example}{Example}[section] 
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PreSh}{PreSh}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\id}{id}
+
+
+\title{V4A3 Sheet 7}
+\author{So Murata}
+\date{}
+
+\begin{document}
+\maketitle 
+\subsection*{(i)}
+Given two roots $\alpha,\beta\in R$, we have
+\begin{equation*}
+\langle\alpha^\lor,\beta\rangle = {\frac {2(a,b)} {(a,a)}} = {\frac {2\Vert \beta\Vert} {\Vert \alpha\Vert}}\cos\theta\in\mathbb{Z}.
+\end{equation*}
+Similarly for $\beta,\alpha$, we derive
+\begin{equation*}
+\langle\alpha^\lor,\beta\rangle\langle\beta^\lor,\alpha\rangle = 4\cos^2\theta\in\mathbb{Z}.
+\end{equation*}
+
+Thus the possibilities of $\cos\theta$ are
+\begin{equation*}
+\pm 1, \pm{\frac 1 2}, \pm{\frac {\sqrt{3}} 2},{\frac 1 {\sqrt{2}}}
+\end{equation*}
+
+Thus angles corresponding them in $0\leq\theta\leq\pi$ are
+\begin{equation*}
+{\frac {1} {6}}\pi,{\frac {1} {3}}\pi,{\frac {1} {4}}\pi,{\frac {1} {2}}\pi,{\frac {2} {3}}\pi,{\frac {3} {4}}\pi,{\frac {5} {6}}\pi.
+\end{equation*}
+
+\subsection*{(ii)}
+
+Let $\Delta=\{\alpha,\beta\}$ be its simple roots. Then the angle between $\alpha,\beta$ are only the angles listed above. If the root system $R$ is reducible then $\Span R = \Span R_1\oplus\Span R_2$. $\Span R$ has a dimension $2$, therefore $\Span R_1,\Span R_2$ both have dimension $1$ and correspond to the standard basis. This is only possible when the angle between them are ${\frac 1 2}\pi$ with $\Delta=\{2e_1,2e_2\}, R=\{\pm 2e_1,\pm2e_2\}$.
+
+\subsection*{(iii)}
+
+We now have to show that each irreducible root systems have angles corresponding to 
+
+\begin{equation*}
+{\frac {1} {6}}\pi,{\frac {1} {3}}\pi,{\frac {1} {4}}\pi,{\frac {2} {3}}\pi,{\frac {3} {4}}\pi,{\frac {5} {6}}\pi.
+\end{equation*}
+
+As we are talking about the reduced and irreducible root system, we can examine the Dynkin diagram to get all the possibilities.
+
+\begin{enumerate}
+\item For ${\frac 2 3}\pi$, it corresponds to $A_2$,
+\item For ${\frac 5 6}\pi$, it corresponds to $G_2$,
+\item For ${\frac 3 4}\pi$, it corresponds to either $B_2,C_2$ depending on the direction of the arrow.
+\end{enumerate}
+
+\end{document}
