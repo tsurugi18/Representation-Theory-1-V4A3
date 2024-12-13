@@ -1,0 +1,85 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{calrsfs}
+\usepackage{tikz-cd} 
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary}[section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{example}{Example}[section] 
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PreSh}{PreSh}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\id}{id}
+
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\displaylimits_{#1}}%
+}
+
+\title{Representation Theory 1 V4A3}
+\author{So Murata}
+\date{2024/2025 Winter Semester - Uni Bonn}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 3}
+
+\subsection*{(iii)}
+
+Let $g\in SU(4)$ and $u\wedge v\in\bigwedge^2\mathbb{C}^4$, we let
+\begin{equation*}
+g(u\wedge v) = gu\wedge gv.
+\end{equation*}
+For $v\in\bigwedge^2\mathbb{C}^4$ we define $v^*\in\mathbb{C}^4$ by 
+\begin{equation*}
+u\wedge v^* = \langle u,v\rangle e_1\wedge e_2\wedge e_3\wedge e_4,
+\end{equation*}
+where $\langle\cdot,\cdot\rangle$ is the Hermitian inner product induced by standard Hermitian inner product on $\mathbb{C}^4$.
+
+For $i,j,k,l\in\{1,2,3,4\}$ and each of them is distinct, we have
+\begin{equation*}
+b_{ij,kl} = {\frac 1 {\sqrt{2}}}(e_i\wedge e_j+e_k\wedge e_l),\quad \overline{b}_{ij,kl} = {\frac i {\sqrt{2}}}(e_i\wedge e_j- e_k\wedge e_l).
+\end{equation*}
+Then this forms a basis in $\bigwedge^+\mathbb{C}^4$. Obviously $SU(4)$ preserves the inner product so maps into $O(6)$, and as $SU(4)$ is connected image lies in $SO(6)$. By the first equation, above, we have the homomorphism between $SU(4)$ and $SO(6)$. 
+\end{document}
