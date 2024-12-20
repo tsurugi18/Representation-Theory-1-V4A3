@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{calrsfs}
+\usepackage{tikz-cd} 
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary}[section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{example}{Example}[section] 
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PreSh}{PreSh}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\height}{ht}
+
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\displaylimits_{#1}}%
+}
+
+\title{Representation Theory 1 V4A3 Sheet 9}
+\author{So Murata}
+\date{2024/2025 Winter Semester - Uni Bonn}
+
+\begin{document}
+\maketitle
+\section{Exercise 3}
+The faithfulness of the action is immediate from the fact that $T$ is maximal abelian. 
+Since $\mathfrak{g}_{\alpha}$ is of dimension $1$, we will prove that $\Ad(n):\mathfrak{g}_{\alpha}\to\mathfrak{g}_{\beta}$ is an injection. \\\par
+Let us note that we have for all $t\in T$, 
+\begin{equation*}
+X\in \mathfrak{g}_\alpha\Leftrightarrow \forall t\in \mathfrak{t}_{\mathbb{C}}, \ad(t)X = \alpha(t)X.
+\end{equation*}
+Substituting $\Ad(n)X$ for $X$ we get
+\begin{equation*}
+\ad(t) X = \alpha(t)\Ad(n)^{-1}\Ad(n)X.
+\end{equation*}
+This is well-defined as $\Ad(n)$ is an isomorphism and $n$ is a normalizer of $T$.\\
+\par Since the action is injective and the root system $R$ is finite, there are at most $|R|!$ many ways of such actions as they represent permutations, we have that $|W|$ is also bounded by $|R|!$. 
+\end{document}

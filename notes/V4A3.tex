@@ -51,6 +51,7 @@
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\rad}{rad}
 \DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\height}{ht}
 
 \newcommand{\tens}[1]{%
   \mathbin{\mathop{\otimes}\displaylimits_{#1}}%
@@ -269,6 +270,17 @@ Then $\Delta$ is a basis of $V^*$.
 
 \begin{definition}
 Such $P$ is called a set of positive roots and $\Delta$ is called a set of simple roots.
+\end{definition}
+
+\begin{definition}
+Let $R$ be a root system of a vector space $V$ and $\Delta\subseteq R$ be the simple roots. Since $\Delta$ is a basis of the dual space $V^*$, for each $\alpha\in R$, it has a unique linear combination of the elements in $\Delta$, 
+\begin{equation*}
+\alpha = \sum_{\beta\in\Delta} h_{\alpha,\beta}\beta.
+\end{equation*}
+We define the height of $\alpha$ to be
+\begin{equation*}
+\height(\alpha) = \sum_{\beta\in\delta} h_{\alpha,\beta}.
+\end{equation*}
 \end{definition}
 
 \begin{remark}
@@ -3157,6 +3169,7 @@ Let $L$ be a Lie algebra and $T$ be its Cartan subalgebra. For $\alpha,\beta\in\
 \item $\beta(h_\alpha)\in\mathbb{Z}$ and $\beta-\beta(h_\alpha)\alpha\in\Phi(T,L)$.
 \item Assume $\alpha\not=\pm\beta$, let $r,q\in\mathbb{N}$ be the largest such that $\beta-r\alpha,\beta+q\alpha\in\Phi(T,L)$, then $\beta+n\alpha\in\Phi(T,L)\Leftrightarrow n\in[-r,q]\cap\mathbb{Z}$ and $r-q = \beta(h_\alpha)$.
 \end{enumerate}
+\label{root_system_property_lie_algebra}
 \end{proposition}
 
 \begin{corollary}
@@ -3172,6 +3185,83 @@ Let $L$ be a complex semi-simple Lie algebra and $T$ be its Cartan subalgebra. I
 \item If for $\alpha,\beta\in\Phi(T,L)$, $\alpha+\beta\in\Phi(T,L)$ hold, then $[L_\alpha,L_\beta] = L_{\alpha+\beta}$.
 \end{enumerate}
 \end{proposition}
+
+\begin{definition}
+For $\alpha, \beta\in\Phi(T,L)$ such that $\alpha+\beta\in \Phi(T,L)$, we define $N_{\alpha,\beta}$ such that 
+\begin{equation*}
+[X_\alpha,X_\beta] = N_{\alpha,\beta}X_{\alpha+\beta},
+\end{equation*}
+This definition is justified by Proposition \ref{root_system_property_lie_algebra}.
+\end{definition}
+
+\begin{lemma}
+For any $\alpha,\beta\in\Phi(T,L)$ we have
+\begin{equation*}
+N_{\alpha,\beta} +N_{\beta,\alpha} = 0.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+By the anticommutativity of the Lie bracket, we derive the statement.
+\end{proof}
+
+\begin{lemma}
+Let $\alpha,\beta,\gamma\in\Phi(T,L)$. If $\alpha,\beta,\gamma$ are pairwise linearly independent and 
+\begin{equation*}
+\alpha+\beta+\gamma = 0.
+\end{equation*}
+Then for a Weyl-invariant scalar product $(\cdot,\cdot)$ we have
+\begin{equation*}
+{\frac {N_{\alpha,\beta}} {(\gamma,\gamma)}}={\frac {N_{\beta,\gamma}} {(\alpha,\alpha)}}={\frac {N_{\gamma,\alpha}} {(\beta,\beta)}}.
+\end{equation*}
+%11.29.4.1 Check the definition and construction of the Weyl-invariant scalar product in this case.
+\end{lemma}
+
+\begin{proof}
+%Missing proof.
+\end{proof}
+
+\begin{lemma}
+Let $\alpha,\beta\in\Phi(T,L)$. Then we have
+\begin{equation*}
+N_{\alpha,\beta}\cdot N_{-\alpha,-\beta} = -q_{\alpha,\beta}(r_{\alpha,\beta}+1){\frac {(\alpha+\beta)} {(\beta,\beta)}}.
+\end{equation*}
+%11.29.4.2 Check the definition of such q,r, see the proposition \label{root_system_property_lie_algebra}
+\end{lemma}
+
+\begin{proof}
+%Missing proof
+\end{proof}
+
+\begin{lemma}
+Let $\alpha,\beta\in\Phi(T,L)$. Then we have
+\begin{equation*}
+N_{\alpha,\beta}\cdot N_{-\alpha,\beta} = -(r_{\alpha,\beta}+1)^2.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+%Missing proof.
+\end{proof}
+
+\begin{lemma}
+Let $\alpha,\beta\in\Phi(T,L)$ then we have
+\begin{equation*}
+N_{\alpha,\beta}=\pm(r_{\alpha,\beta}+1) \Leftrightarrow N_{\alpha,\beta}+N_{\alpha,\beta} = 0.
+\end{equation*}
+%11.29.5.2 Consider stating this statement as a corollary of the previous lemma.
+\end{lemma}
+
+\begin{proof}
+%Missing proof.
+\end{proof}
+
+\begin{lemma}
+Let $\alpha,\beta\in\Phi(T,L)$.\\
+\par Suppose we have the implication that $\alpha,\beta>0$ and $\height(\alpha+\beta)<n$ then we have
+\begin{equation*}
+\end{equation*}
+Then we have another implication such that 
+%11.29.6.1 Refine the statement.
+\end{lemma}
 
 \begin{theorem}
 Let $L$ be a complex semi-simple Lie algebra and $T$ be its Cartan subalgebra. If $(L,T)$ is the complexification of $(\mathfrak{g},\mathfrak{t})$, then for any $\alpha\in\Phi(T,L)$, there is non-zero $X_\alpha\in L_\alpha$ such that 
@@ -3195,5 +3285,9 @@ Let us pick a set of simple roots $\Delta\subset\Phi$. Then there is a collectio
 
 If we choose a set of simple roots $\Delta\subseteq\Phi(T,L)$ and a total order on $\Delta$ the signs $\varepsilon_{\alpha,\beta}$ are completely determined by $\varepsilon_{\alpha,\beta}=1$ where $\alpha,\beta\in\Phi(T,L)$, $\alpha\in\Delta$ and $\beta\in \Phi^+(T,L)$. There is not $\alpha'\in\Delta,\beta'\in\Phi^+(T,L)$ such that $\alpha+\beta=\alpha'+\beta$ and $\alpha'<\alpha$.
 \end{theorem}
+
+\begin{proof}
+%Missing proof.
+\end{proof}
 
 \end{document}
